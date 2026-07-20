@@ -25,6 +25,9 @@ const config = defineConfig({
     viteReact(),
     babel({ presets: [reactCompilerPreset()] }),
   ],
+  optimizeDeps: {
+    include: ['swiper', 'swiper/react', 'swiper/modules'],
+  },
 })
 
 export default config
