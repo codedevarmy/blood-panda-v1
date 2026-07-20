@@ -9,6 +9,7 @@ import netlify from '@netlify/vite-plugin-tanstack-start'
 import babel from '@rolldown/plugin-babel'
 import tailwindcss from '@tailwindcss/vite'
 import viteReact, { reactCompilerPreset } from '@vitejs/plugin-react'
+import { nitro } from 'nitro/vite'
 import neon from './neon-vite-plugin.ts'
 
 const config = defineConfig({
@@ -20,6 +21,7 @@ const config = defineConfig({
     neon,
     tailwindcss(),
     tanstackStart(),
+    nitro(),
     viteReact(),
     babel({ presets: [reactCompilerPreset()] }),
   ],
