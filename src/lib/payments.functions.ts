@@ -51,7 +51,7 @@ export const createCheckOutLink = createServerFn({ method: 'POST' })
       .amount(amountInPaisa)
       // .prefillUserLoginDetails(prefillUserLoginDetails)
       .metaInfo(metaInfo)
-      .redirectUrl(`${redirectUrl}/booking-success`)
+      .redirectUrl(`${redirectUrl}/payment-success?bookingId=${data.bookingId}`)
       .expireAfter(3600) // Expire after 1 hour
       .message('Message that will be shown for UPI collect transaction') // TODO: Add a proper message here
       .build()
@@ -60,6 +60,7 @@ export const createCheckOutLink = createServerFn({ method: 'POST' })
       const result = await getPaymentClient().pay(orderRequest)
       throw redirect({
         href: result.redirectUrl,
+        code: 302,
       })
     } catch (error) {
       const err = error as PhonePeException

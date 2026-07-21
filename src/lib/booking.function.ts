@@ -3,14 +3,21 @@ import { BookingStatus } from '#/generated/prisma/enums'
 import { createServerFn } from '@tanstack/react-start'
 import z from 'zod'
 import { authMiddleware } from './middleware'
+import { createCheckOutLink } from './payments.functions'
 import { bookingFormSchema } from './validators/booking-schema'
+
+const createBookingRecordSchema = z
+  .object({
+    totalPrice: z.number(),
+  })
+  .extend(bookingFormSchema.shape)
 
 export const createBookingRecord = createServerFn({ method: 'POST' })
   .middleware([authMiddleware])
-  .validator(bookingFormSchema)
+  .validator(createBookingRecordSchema)
   .handler(async ({ data, context }) => {
     const { user } = context
-    const { memberDetails, address, schedule, reviewOrder } = data
+    const { memberDetails, address, schedule, reviewOrder, totalPrice } = data
 
     try {
       // Task 1: Create members in parallel
@@ -22,7 +29,11 @@ export const createBookingRecord = createServerFn({ method: 'POST' })
             gender: member.gender,
             phone: member.phone,
             email: member.email,
-            testPackages: member.testItems,
+            testItems: member.testItems
+              ? {
+                  connect: member.testItems.map((pkg) => ({ id: pkg.id })),
+                }
+              : undefined,
           },
         }),
       )
@@ -58,10 +69,10 @@ export const createBookingRecord = createServerFn({ method: 'POST' })
           members: {
             connect: createdMembers.map((member) => ({ id: member.id })),
           },
-          address: {
+          addresses: {
             connect: { id: createdAddress.id },
           },
-          schedule: {
+          schedules: {
             connect: { id: createdSchedule.id },
           },
         },
@@ -96,7 +107,20 @@ export const createBookingRecord = createServerFn({ method: 'POST' })
       })
       await Promise.all([updateMembers, updateAddress, updateSchedule])
 
-      return createBooking
+      if (reviewOrder.paymentMode === 'ONLINE_PAYMENT') {
+        await createCheckOutLink({
+          data: {
+            bookingId: createBooking.id,
+            totalPrice: totalPrice,
+            memberDetails,
+            address,
+            schedule,
+            reviewOrder,
+          },
+        })
+      } else {
+        return createBooking
+      }
     } catch (error) {
       console.error('Error creating booking:', error)
       throw new Error('Failed to create booking')

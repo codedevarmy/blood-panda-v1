@@ -148,6 +148,69 @@ export function BookingContextProvider(props: BookingContextProviderProps) {
   async function validateStep(currentStep: number): Promise<boolean> {
     const fieldToValidate = stepFields[currentStep]
 
+    // without adding testItems cant reach to the next step, so we need to validate testItems as well
+    if (fieldToValidate === 'memberDetails') {
+      const memberDetails = formInstance.getValues('memberDetails')
+
+      // with Array.some()
+      const isAnyMemberWithoutTestItems = memberDetails.some(
+        (member) => !member.testItems || member.testItems.length === 0,
+      )
+
+      // const isAnyMemberWithInvalidTestItems = memberDetails.some(
+      //   (member) =>
+      //     !member.testItems ||
+      //     member.testItems.length === 0 ||
+      //     member.testItems.some(
+      //       (item) =>
+      //         !item.name ||
+      //         !item.id ||
+      //         item.discountedPrice === undefined ||
+      //         item.originalPrice === undefined,
+      //     ),
+      // )
+
+      // with Array.every() **use with ! **
+      // const isAnyMemberWithoutTestItems2 = memberDetails.every(
+      //   (member) => member.testItems && member.testItems.length > 0,
+      // )
+
+      if (isAnyMemberWithoutTestItems) {
+        toast.error('Please add at least one test item for each member.')
+        memberDetails.map((_, index) =>
+          formInstance.setError(`memberDetails.${index}.testItems`, {
+            type: 'manual',
+            message: 'Please add at least one test item for each member.',
+          }),
+        )
+
+        // console.log(
+        //   'memberDetails',
+        //   formInstance.formState.errors.memberDetails,
+        // )
+        // formInstance.setError('memberDetails', {
+        //   type: 'manual',
+        //   message: 'Please add at least one test item for each member.',
+        // }))
+        return false
+      }
+
+      // const testItemsValidations = await Promise.all(
+      //   memberDetails.map((_, index) =>
+      //     formInstance.trigger(`memberDetails.${index}.testItems`),
+      //   ),
+      // )
+      // console.log('Test items validations:', testItemsValidations)
+
+      // const allTestItemsValid = testItemsValidations.every((isValid) => isValid)
+
+      // console.log('All test items valid:', allTestItemsValid)
+
+      // if (!allTestItemsValid) {
+      //   return false
+      // }
+    }
+
     // If the step matches a specific field group, trigger it; otherwise return true
     return await formInstance.trigger(fieldToValidate)
   }
@@ -187,7 +250,9 @@ export function BookingContextProvider(props: BookingContextProviderProps) {
             thirdStepProgress: step >= 3 ? 100 : 0,
           }))
         }
-        return 'Form is valid! Moving to next step...'
+        return result
+          ? 'Form is valid! Moving to next step...'
+          : 'Form is invalid. Please fix the errors.'
       },
       error: 'Please fix the errors in the form before proceeding.',
     })
@@ -217,13 +282,18 @@ export function BookingContextProvider(props: BookingContextProviderProps) {
     onTimeout: () => {
       console.log('Form data expired')
     },
-    onDataRestored: (values) => {
-      console.log(values)
-    },
+    // onDataRestored: (values) => {
+    //   console.log(values)
+    // },
     validate: true, // Trigger validation when data is restored
     dirty: true, // Mark form as dirty
     touch: true, // Mark fields as touched
   })
+
+  const afterBookingClearStorage = () => {
+    clearStorage()
+    setBookingStats(initialValue)
+  }
 
   const values: BookingContextType = {
     step,
@@ -231,7 +301,7 @@ export function BookingContextProvider(props: BookingContextProviderProps) {
     prevStep,
     canGoToNextStep,
     canGoToPreviousStep,
-    clearStorage,
+    clearStorage: afterBookingClearStorage,
 
     bookingStats,
 

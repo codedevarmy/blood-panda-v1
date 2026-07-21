@@ -90,7 +90,9 @@ export default function AddTestItemsDialog({ parentIndex }: Props) {
       <DialogTrigger asChild>
         <Button variant="outline" className={'w-full'}>
           <PackagePlusIcon className={'size-4'} />
-          Add test / package {selectedTestItems.length}
+          {selectedTestItems.length > 0
+            ? `Added ${selectedTestItems.length} test / package`
+            : 'Add test / package'}
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-lg">

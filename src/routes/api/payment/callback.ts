@@ -1,7 +1,6 @@
 import { getServerEnv } from '#/config/server-env'
 import { getPaymentClient } from '#/integrations/phonepay'
 import { updateBookingStatus } from '#/lib/booking.function'
-import { authMiddleware } from '#/lib/middleware'
 import {
   createPaymentRecord,
   createWebhookRecord,
@@ -17,7 +16,7 @@ import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/api/payment/callback')({
   server: {
-    middleware: [authMiddleware], // Runs first for all handlers
+    // middleware: [authMiddleware], // Runs first for all handlers
     handlers: ({ createHandlers }) =>
       createHandlers({
         GET: async () => {

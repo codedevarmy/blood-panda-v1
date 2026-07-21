@@ -245,10 +245,10 @@ export default function BasicDetailsStep() {
                     </CardContent>
                   </Card>
 
-                  <MembersTestItems parentIndex={idx} key={row.id} />
+                  <MembersTestItems parentIndex={idx} />
 
                   {/* Upload prescription */}
-                  <UploadPrescription parentIdx={idx} key={row.id} />
+                  <UploadPrescription parentIdx={idx} />
                 </CardContent>
                 <Separator className={'mb-4'} />
               </Card>

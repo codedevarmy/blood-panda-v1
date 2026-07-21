@@ -29,6 +29,7 @@ import {
 } from '#/components/ui/item'
 import { RadioGroup, RadioGroupItem } from '#/components/ui/radio-group'
 import type { BookingFormData } from '#/lib/validators/booking-schema'
+import { format } from 'date-fns'
 import { Clock10, MapPinCheck } from 'lucide-react'
 import { Controller, useFormContext, useWatch } from 'react-hook-form'
 
@@ -106,12 +107,13 @@ export default function ReviewStep() {
                 <ItemContent>
                   <ItemTitle>1st Collection</ItemTitle>
                   <ItemDescription>
-                    {/* {format(
-                      new Date(watchedScheduleValues?.scheduleDate) ??
-                        new Date(),
-                      "dd MMM yyyy"
-                    )}{" "}
-                    at {watchedScheduleValues?.slotTime} */}
+                    {watchedScheduleValues.scheduleDate
+                      ? format(
+                          new Date(watchedScheduleValues.scheduleDate),
+                          'dd MMM yyyy',
+                        )
+                      : format(new Date(), 'dd MMM yyyy')}{' '}
+                    at {watchedScheduleValues.slotTime}
                   </ItemDescription>
                 </ItemContent>
                 <ItemActions>

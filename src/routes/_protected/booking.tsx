@@ -4,8 +4,7 @@ import { Spinner } from '#/components/ui/spinner'
 import { BookingContextProvider } from '#/contexts/booking-context.lazy'
 import BookingForm from '#/features/booking/booking-form'
 import { getAllTests } from '#/lib/tests.functions'
-import { createFileRoute, useRouter } from '@tanstack/react-router'
-import { Suspense } from 'react'
+import { ClientOnly, createFileRoute, useRouter } from '@tanstack/react-router'
 
 // const requestLogger = createMiddleware({ type: 'function' })
 //   .middleware([authMiddleware])
@@ -125,11 +124,11 @@ function RouteComponent() {
           Say Hello
         </Button>
       </div> */}
-      <Suspense fallback={<SuspenseFallback />}>
+      <ClientOnly fallback={<SuspenseFallback />}>
         <BookingContextProvider>
           <BookingForm />
         </BookingContextProvider>
-      </Suspense>
+      </ClientOnly>
     </main>
   )
 }

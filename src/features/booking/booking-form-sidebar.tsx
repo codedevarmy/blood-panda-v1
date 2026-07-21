@@ -12,13 +12,12 @@ import { Separator } from '#/components/ui/separator'
 import { Spinner } from '#/components/ui/spinner'
 import { useBookingContext } from '#/contexts/booking-context.lazy'
 import { createBookingRecord } from '#/lib/booking.function'
-import { createCheckOutLink } from '#/lib/payments.functions'
 import { formatCurrency } from '#/lib/utils'
 import type { BookingFormData } from '#/lib/validators/booking-schema'
 import { useMutation } from '@tanstack/react-query'
+import { useRouter } from '@tanstack/react-router'
 import { useServerFn } from '@tanstack/react-start'
 import { useFormContext, useWatch } from 'react-hook-form'
-// import { useFetcher } from 'react-router'
 import { toast } from 'sonner'
 
 /*
@@ -43,10 +42,10 @@ export default function BookingFormSidebar() {
     discountPercentage,
     discountedPrice,
     canGoToNextStep,
+    clearStorage,
   } = useBookingContext()
 
-  // const fetcher = useFetcher({ key: "booking" })
-  // const fetcher = useFetcher()
+  const router = useRouter()
 
   const totalMembers = useWatch({
     control: form.control,
@@ -80,6 +79,10 @@ export default function BookingFormSidebar() {
     name: `reviewOrder`,
   })
 
+  const isAnyMemberWithoutTestItems = watchedMemberValues.every(
+    (member) => member.testItems && member.testItems.length > 0,
+  )
+
   const bookingData = {
     memberDetails: watchedMemberValues,
     address: watchedAddressValues,
@@ -89,7 +92,7 @@ export default function BookingFormSidebar() {
   }
 
   const createbookingFn = useServerFn(createBookingRecord)
-  const createCheckOutFn = useServerFn(createCheckOutLink)
+  // const createCheckOutFn = useServerFn(createCheckOutLink)
 
   const {
     mutateAsync: bookingMutation,
@@ -99,26 +102,26 @@ export default function BookingFormSidebar() {
     mutationFn: () => createbookingFn({ data: bookingData }),
   })
 
-  const {
-    mutateAsync: checkOutMutation,
-    isPending: isCheckOutPending,
-    isPaused: isCheckOutPaused,
-  } = useMutation({
-    mutationFn: (bookingId: string) =>
-      createCheckOutFn({
-        data: {
-          bookingId: bookingId,
-          totalPrice: totalPrice,
-          memberDetails: watchedMemberValues,
-          address: watchedAddressValues,
-          schedule: watchedScheduleValues,
-          reviewOrder: watchedReviewOrderValues,
-        },
-      }),
-  })
+  // const {
+  //   mutateAsync: checkOutMutation,
+  //   isPending: isCheckOutPending,
+  //   isPaused: isCheckOutPaused,
+  // } = useMutation({
+  //   mutationFn: (bookingId: string) =>
+  //     createCheckOutFn({
+  //       data: {
+  //         bookingId: bookingId,
+  //         totalPrice: totalPrice,
+  //         memberDetails: watchedMemberValues,
+  //         address: watchedAddressValues,
+  //         schedule: watchedScheduleValues,
+  //         reviewOrder: watchedReviewOrderValues,
+  //       },
+  //     }),
+  // })
 
   function handleFinalSubmit() {
-    const fakePromise = new Promise((resolve) => setTimeout(resolve, 2000))
+    // const fakePromise = new Promise((resolve) => setTimeout(resolve, 2000))
 
     if (step === 1 || step === 2 || step === 3) {
       return nextStep()
@@ -128,16 +131,22 @@ export default function BookingFormSidebar() {
         // create the booking and show the success page
         toast.promise(bookingMutation, {
           loading: 'Creating booking...',
-          success: 'Booking created successfully!',
+          success: () => {
+            // cleared form data and reset the booking context
+            clearStorage()
+            router.navigate({ to: '/profile' }) // Navigate to the success page
+            router.invalidate({
+              filter: (route) => route.id === 'profile',
+              sync: true,
+            }) // Refresh route loaders to reflect the new booking
+            return 'Booking created successfully!'
+          },
           error: 'Failed to create booking.',
         })
       } else {
         toast.promise(bookingMutation, {
           loading: 'Redirecting to payment gateway...',
-          success: (data) => {
-            // After booking is created, initiate payment
-            checkOutMutation(data.id)
-
+          success: () => {
             return 'Booking created successfully!'
           },
           error: 'Failed to create booking.',
@@ -189,6 +198,7 @@ export default function BookingFormSidebar() {
         <Button
           type="button"
           className={'w-full'}
+          disabled={!isAnyMemberWithoutTestItems}
           onClick={() => handleFinalSubmit()}
         >
           {canGoToNextStep ? (
