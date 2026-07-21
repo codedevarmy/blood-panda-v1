@@ -48,10 +48,14 @@ export default function Header() {
         'sticky top-0 left-0 z-50 mx-auto flex w-full max-w-(--breakpoint-xl) items-center justify-between bg-background px-4'
       }
     >
-      <div className={'flex flex-col items-center justify-center py-2'}>
+      <Link
+        to="/"
+        viewTransition
+        className={'flex flex-col items-center justify-center py-2'}
+      >
         <img src="/logo-idol.png" alt="logo" width={70} height={49} />
         <img src="/logo-txt.png" alt="logo" width={196} height={34} />
-      </div>
+      </Link>
 
       <nav className={'hidden items-center gap-4 md:flex'}>
         <NavigationMenu>
@@ -189,11 +193,11 @@ export default function Header() {
                 className={'relative'}
                 onClick={() =>
                   navigate({
-                    to: '/login',
+                    to: '/cart',
                     // state: {
                     //   __tempLocation: location,
                     // },
-                    hash: 'login',
+                    hash: 'cart',
                     viewTransition: true,
                     search: `?redirectTo=${encodeURIComponent(location.pathname)}`,
                   })
