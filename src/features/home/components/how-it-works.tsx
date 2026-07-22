@@ -19,12 +19,22 @@ export default function HowItWorks() {
           <CardTitle className={'flex items-center justify-center'}>
             <Separator
               orientation="vertical"
-              className={'my-auto h-1 min-w-xs scroll-fade-e'}
+              className={
+                'my-auto h-1 min-w-20 sm:min-w-36 md:min-w-xs scroll-fade-e'
+              }
             />
-            <h3 className={'text-center text-3xl'}>How it Works</h3>
+            <h3
+              className={
+                'text-center text-base md:text-xl lg:text-2xl xl:text-3xl'
+              }
+            >
+              How it Works
+            </h3>
             <Separator
               orientation="vertical"
-              className={'my-auto h-1 min-w-xs scroll-fade-s'}
+              className={
+                'my-auto h-1 min-w-20 sm:min-w-36 md:min-w-xs scroll-fade-s'
+              }
             />
           </CardTitle>
         </CardHeader>
@@ -35,12 +45,12 @@ export default function HowItWorks() {
               howItWorks.lastIndexOf(howItWorks[idx + 1]) === idx + 1
 
             return (
-              <div key={step.id} className={'flex items-center gap-2'}>
+              <div key={step.id} className={'flex items-center'}>
                 <div className={'flex flex-col items-center gap-1'}>
                   <span
                     className={cn(
                       // `${step.coverColor}`,
-                      'px-4.5 py-3',
+                      'px-2.5 lg:px-4.5 py-1.5 lg:py-3',
                       'rounded-full',
                       'ring-1 ring-blue-500',
                       // "text-background"
@@ -57,7 +67,7 @@ export default function HowItWorks() {
                     <Separator
                       orientation="vertical"
                       className={
-                        'h-1 min-w-xs scroll-fade-e rounded-full -bg-linear-270 from-blue-400 from-25% via-lime-300 via-40% to-yellow-300 to-35%'
+                        'h-1 min-w-16 sm:min-w-36 md:min-w-xs scroll-fade-e rounded-full -bg-linear-270 from-blue-400 from-25% via-lime-300 via-40% to-yellow-300 to-35% ml-4'
                       }
                     />
                   ) : null}

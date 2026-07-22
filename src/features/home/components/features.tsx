@@ -10,12 +10,19 @@ import {
 } from '#/components/ui/item'
 import { featureItems } from '#/constants'
 import { cn } from '#/lib/utils'
+import { Link } from '@tanstack/react-router'
 import { ChevronRight } from 'lucide-react'
 
 export default function Features() {
   return (
-    <section className={'space-y-4'}>
-      <h2 className={'text-4xl font-semibold'}>Need Assistance?</h2>
+    <section className={'space-y-4 mt-105 sm:mt-55 md:mt-48 lg:mt-32 xl:mt-20'}>
+      <h2
+        className={
+          'text:xl md:text-2xl lg:text-3xl xl:text-4xl font-medium lg:font-semibold'
+        }
+      >
+        Need Assistance?
+      </h2>
 
       <ItemGroup className="w-full flex-row flex-wrap lg:flex-nowrap">
         {featureItems.map((item) => (
@@ -31,8 +38,20 @@ export default function Features() {
               <ItemDescription>{item.desc}</ItemDescription>
             </ItemContent>
             <ItemActions>
-              <Button variant={'ghost'}>
-                <ChevronRight className={'size-4'} />
+              <Button variant={'outline'} size={'sm'} asChild>
+                {item.href === '/profile' ? (
+                  <Link to={item.href} viewTransition>
+                    <ChevronRight className={'size-4'} />
+                  </Link>
+                ) : (
+                  <Link
+                    to={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ChevronRight className={'size-4'} />
+                  </Link>
+                )}
               </Button>
             </ItemActions>
           </Item>

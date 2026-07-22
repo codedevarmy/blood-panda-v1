@@ -22,21 +22,27 @@ export default function WhyChooseUs() {
       >
         <CardHeader>
           <CardTitle>
-            <h3 className={'text-3xl'}>Why Choose Blood Panda?</h3>
+            <h3
+              className={
+                'text-center text-base md:text-xl lg:text-2xl xl:text-3xl'
+              }
+            >
+              Why Choose Blood Panda?
+            </h3>
           </CardTitle>
           <CardDescription>
-            <p>Trusted By Doctors & Patients</p>
+            <p className={'text-center'}>Trusted By Doctors & Patients</p>
           </CardDescription>
         </CardHeader>
-        <CardContent className={'w-full max-w-md'}>
+        <CardContent className={'w-full max-w-md mx-auto'}>
           <h4 className={'font-semibold'}>
             Blood Masters built on the principles of accuracy, speed, and trust.
             Every test is processed in NABL accredited labs with the highest
             quality standards.
           </h4>
         </CardContent>
-        <CardContent className={'grid grid-cols-1 gap-4 lg:grid-cols-2'}>
-          <ul className={'space-y-2'}>
+        <CardContent className={'grid grid-cols-1 gap-4 xl:grid-cols-2'}>
+          <ul className={'space-y-2 content-center'}>
             {whyChooseReasons.map((item) => {
               return (
                 <li key={item.id} className={'flex items-center gap-2'}>
@@ -47,30 +53,32 @@ export default function WhyChooseUs() {
             })}
           </ul>
 
-          <Card className={'w-full'}>
-            <CardContent className={'grid grid-cols-4'}>
-              <Card className={'rounded-none border-r-2 shadow-none ring-0'}>
+          <Card className={'w-full rounded-none'}>
+            <CardContent
+              className={'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'}
+            >
+              <Card className={''}>
                 <CardContent className={'flex flex-col items-center gap-1'}>
                   <h5 className={'text-lg font-semibold'}>10k+</h5>
                   <IconFileCheck className={'size-6'} />
                 </CardContent>
               </Card>
 
-              <Card className={'rounded-none border-r-2 shadow-none ring-0'}>
+              <Card className={''}>
                 <CardContent className={'flex flex-col items-center gap-1'}>
                   <h5 className={'text-lg font-semibold'}>24 Hr</h5>
                   <IconClock24 className={'size-6'} />
                 </CardContent>
               </Card>
 
-              <Card className={'rounded-none border-r-2 shadow-none ring-0'}>
+              <Card className={''}>
                 <CardContent className={'flex flex-col items-center gap-1'}>
                   <h5 className={'text-lg font-semibold'}>4.9 Stars</h5>
                   <IconStar className={'size-6'} />
                 </CardContent>
               </Card>
 
-              <Card className={'rounded-none shadow-none ring-0'}>
+              <Card className={''}>
                 <CardContent className={'flex flex-col items-center gap-1'}>
                   <h5 className={'text-lg font-semibold'}>NABL</h5>
                   <IconShieldCheck className={'size-6'} />

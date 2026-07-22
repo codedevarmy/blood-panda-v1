@@ -19,7 +19,11 @@ export default function BookingSteps() {
       >
         <CardHeader>
           <CardTitle>
-            <h3 className={'text-center text-3xl'}>
+            <h3
+              className={
+                'text-center text-base md:text-xl lg:text-2xl xl:text-3xl'
+              }
+            >
               Book Your Test in 3 Easy Steps
             </h3>
           </CardTitle>

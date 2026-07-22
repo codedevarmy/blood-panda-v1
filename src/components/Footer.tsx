@@ -5,6 +5,7 @@ import {
   IconBrandWhatsapp,
   IconBrandYoutube,
 } from '@tabler/icons-react'
+import { Link } from '@tanstack/react-router'
 import {
   ChevronRightCircleIcon,
   ChevronRightIcon,
@@ -36,9 +37,15 @@ export default function Footer() {
             </span>
           </p>
 
-          <Button className={'rounded-full'}>
-            <IconBrandWhatsapp className={'size-4'} />
-            Chat on Whatsapp
+          <Button type="button" className={'rounded-full'} asChild>
+            <a
+              href="https://wa.link/fvmq1j"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconBrandWhatsapp className={'size-4'} />
+              Chat on Whatsapp
+            </a>
           </Button>
 
           <div className={'flex items-center gap-3'}>
@@ -58,10 +65,14 @@ export default function Footer() {
                 size={'sm'}
                 className={'px-0 text-background'}
               >
-                <a href="#">
+                <Link
+                  to="/packages/$package"
+                  params={{ package: 'diamond' }}
+                  viewTransition
+                >
                   <ChevronRightIcon className={'size-4'} />
                   Health Packages
-                </a>
+                </Link>
               </Button>
             </li>
             <li>
@@ -71,10 +82,10 @@ export default function Footer() {
                 size={'sm'}
                 className={'px-0 text-background'}
               >
-                <a href="#">
+                <Link to="/tests" viewTransition>
                   <ChevronRightIcon className={'size-4'} />
                   Popular Tests
-                </a>
+                </Link>
               </Button>
             </li>
             <li>
@@ -84,10 +95,10 @@ export default function Footer() {
                 size={'sm'}
                 className={'px-0 text-background'}
               >
-                <a href="#">
+                <Link to="/tests" viewTransition>
                   <ChevronRightIcon className={'size-4'} />
                   Health by Category
-                </a>
+                </Link>
               </Button>
             </li>
             <li>
@@ -97,10 +108,10 @@ export default function Footer() {
                 size={'sm'}
                 className={'px-0 text-background'}
               >
-                <a href="#">
+                <Link to="/blogs" viewTransition>
                   <ChevronRightIcon className={'size-4'} />
                   Blogs
-                </a>
+                </Link>
               </Button>
             </li>
             <li>
@@ -110,10 +121,10 @@ export default function Footer() {
                 size={'sm'}
                 className={'px-0 text-background'}
               >
-                <a href="#">
+                <Link to="/booking" viewTransition>
                   <ChevronRightIcon className={'size-4'} />
                   Book Home Collection
-                </a>
+                </Link>
               </Button>
             </li>
           </ul>
@@ -128,13 +139,13 @@ export default function Footer() {
                 size={'sm'}
                 className={'px-0 text-background'}
               >
-                <a href="tel:+919999911111">
+                <a href="tel:+918277842200">
                   <PhoneCallIcon className={'size-4'} />
-                  +91 99999 11111
+                  +91 82778 42200
                 </a>
               </Button>
             </li>
-            <li>
+            {/* <li>
               <Button
                 variant={'link'}
                 asChild
@@ -144,6 +155,19 @@ export default function Footer() {
                 <a href="tel:+919999911111">
                   <PhoneCallIcon className={'size-4'} />
                   +91 99999 11111
+                </a>
+              </Button>
+            </li> */}
+            <li>
+              <Button
+                variant={'link'}
+                asChild
+                size={'sm'}
+                className={'px-0 text-background'}
+              >
+                <a href="mailto:support@bloodpanda.com">
+                  <MailPlusIcon className={'size-4'} />
+                  support@bloodpanda.com
                 </a>
               </Button>
             </li>
@@ -183,8 +207,14 @@ export default function Footer() {
                 Book your home collection in 60 seconds on Whatsapp.
               </CardDescription>
               <CardAction>
-                <Button type="button" className={'w-full'}>
-                  Chat Now <ChevronRightCircleIcon className={'size-4'} />
+                <Button type="button" className={'w-full'} asChild>
+                  <a
+                    href="https://wa.link/fvmq1j"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Chat Now <ChevronRightCircleIcon className={'size-4'} />
+                  </a>
                 </Button>
               </CardAction>
             </CardContent>

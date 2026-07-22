@@ -2,198 +2,201 @@ import {
   IconBrandWhatsapp,
   IconFileInvoice,
   IconPhoneCall,
-} from "@tabler/icons-react"
+} from '@tabler/icons-react'
 
 export const navLinks = [
   {
     id: crypto.randomUUID(),
-    label: "Home",
-    href: "/",
+    label: 'Home',
+    href: '/',
   },
   {
     id: crypto.randomUUID(),
-    label: "Tests",
-    href: "/tests",
+    label: 'Tests',
+    href: '/tests',
   },
   {
     id: crypto.randomUUID(),
-    label: "Packages",
-    href: "/packages",
+    label: 'Packages',
+    href: '/packages',
   },
   {
     id: crypto.randomUUID(),
-    label: "Blogs",
-    href: "/blogs",
+    label: 'Blogs',
+    href: '/blogs',
   },
   {
     id: crypto.randomUUID(),
-    label: "Contact Us",
-    href: "/contact-us",
+    label: 'Contact Us',
+    href: '/contact-us',
   },
 ]
 
 export const packagesLink = [
   {
     id: crypto.randomUUID(),
-    label: "Silver",
-    href: "/packages/silver",
+    label: 'Silver',
+    href: '/packages/silver',
   },
   {
     id: crypto.randomUUID(),
-    label: "Gold",
-    href: "/packages/gold",
+    label: 'Gold',
+    href: '/packages/gold',
   },
   {
     id: crypto.randomUUID(),
-    label: "Diamond",
-    href: "/packages/diamond",
+    label: 'Diamond',
+    href: '/packages/diamond',
   },
   {
     id: crypto.randomUUID(),
-    label: "Platinum",
-    href: "/packages/platinum",
+    label: 'Platinum',
+    href: '/packages/platinum',
   },
   {
     id: crypto.randomUUID(),
-    label: "Signature",
-    href: "/packages/signature",
+    label: 'Signature',
+    href: '/packages/signature',
   },
 ]
 
 export const miniPackagesLink = [
   {
     id: crypto.randomUUID(),
-    label: "Renal Pack",
-    href: "/packages/mini-packages/renal-pack",
+    label: 'Renal Pack',
+    href: '/packages/mini-packages/renal-pack',
   },
   {
     id: crypto.randomUUID(),
-    label: "Liver Pack",
-    href: "/packages/mini-packages/liver-pack",
+    label: 'Liver Pack',
+    href: '/packages/mini-packages/liver-pack',
   },
   {
     id: crypto.randomUUID(),
-    label: "Bone Pack",
-    href: "/packages/mini-packages/bone-pack",
+    label: 'Bone Pack',
+    href: '/packages/mini-packages/bone-pack',
   },
   {
     id: crypto.randomUUID(),
-    label: "Gut Pack",
-    href: "/packages/mini-packages/gut-pack",
+    label: 'Gut Pack',
+    href: '/packages/mini-packages/gut-pack',
   },
   {
     id: crypto.randomUUID(),
-    label: "Fever Pack",
-    href: "/packages/mini-packages/fever-pack",
+    label: 'Fever Pack',
+    href: '/packages/mini-packages/fever-pack',
   },
   {
     id: crypto.randomUUID(),
-    label: "Obesity Pack",
-    href: "/packages/mini-packages/obesity-pack",
+    label: 'Obesity Pack',
+    href: '/packages/mini-packages/obesity-pack',
   },
   {
     id: crypto.randomUUID(),
-    label: "Diabetic Pack",
-    href: "/packages/mini-packages/diabetic-pack",
+    label: 'Diabetic Pack',
+    href: '/packages/mini-packages/diabetic-pack',
   },
   {
     id: crypto.randomUUID(),
-    label: "Hypertension Pack",
-    href: "/packages/mini-packages/hypertension-pack",
+    label: 'Hypertension Pack',
+    href: '/packages/mini-packages/hypertension-pack',
   },
   {
     id: crypto.randomUUID(),
-    label: "Cardiac Pack",
-    href: "/packages/mini-packages/cardiac-pack",
+    label: 'Cardiac Pack',
+    href: '/packages/mini-packages/cardiac-pack',
   },
 ]
 
 export const packageIcons = [
-  "/packages/1.svg",
-  "/packages/2.svg",
-  "/packages/3.svg",
-  "/packages/4.svg",
-  "/packages/5.svg",
-  "/packages/6.svg",
-  "/packages/7.svg",
-  "/packages/8.svg",
-  "/packages/9.svg",
-  "/packages/10.svg",
-  "/packages/11.svg",
-  "/packages/12.svg",
-  "/packages/13.svg",
-  "/packages/14.svg",
+  '/packages/1.svg',
+  '/packages/2.svg',
+  '/packages/3.svg',
+  '/packages/4.svg',
+  '/packages/5.svg',
+  '/packages/6.svg',
+  '/packages/7.svg',
+  '/packages/8.svg',
+  '/packages/9.svg',
+  '/packages/10.svg',
+  '/packages/11.svg',
+  '/packages/12.svg',
+  '/packages/13.svg',
+  '/packages/14.svg',
 ]
 
 export const featureItems = [
   {
     id: crypto.randomUUID(),
-    title: "Talk to an Expert",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    title: 'Talk to an Expert',
+    desc: 'Need guidance before booking? Our healthcare team is here to help.',
     icon: (
-      <IconPhoneCall className={"size-8 fill-orange-500 stroke-orange-300"} />
+      <IconPhoneCall className={'size-8 fill-orange-500 stroke-orange-300'} />
     ),
-    bgColor: "bg-custom-5",
+    bgColor: 'bg-custom-5',
+    href: 'tel:+918277842200',
   },
   {
     id: crypto.randomUUID(),
-    title: "Whatsapp Support",
-    desc: "Chat with our support team for quick assistance.",
+    title: 'Whatsapp Support',
+    desc: 'Chat with our support team for quick assistance.',
     icon: (
-      <IconBrandWhatsapp className={"size-8 fill-green-400 stroke-olive-50"} />
+      <IconBrandWhatsapp className={'size-8 fill-green-400 stroke-olive-50'} />
     ),
-    bgColor: "bg-custom-6",
+    bgColor: 'bg-custom-6',
+    href: 'https://wa.link/fvmq1j',
   },
   {
     id: crypto.randomUUID(),
-    title: "Upload Prescription",
+    title: 'Upload Prescription',
     desc: "Upload your doctor's prescription and we'll recommend the right tests.",
     icon: (
-      <IconFileInvoice className={"size-8 fill-blue-700 stroke-olive-50"} />
+      <IconFileInvoice className={'size-8 fill-blue-700 stroke-olive-50'} />
     ),
-    bgColor: "bg-custom-7",
+    bgColor: 'bg-custom-7',
+    href: '/profile',
   },
 ]
 
 export const healthPackages = [
   {
     id: crypto.randomUUID(),
-    planName: "silver",
-    features: ["61+ tests included", "Essential Check", "Report in 24 hrs"],
-    originalPrice: "1599",
-    discountedPrice: "1199",
+    planName: 'silver',
+    features: ['61+ tests included', 'Essential Check', 'Report in 24 hrs'],
+    originalPrice: '1599',
+    discountedPrice: '1199',
     isPopular: false,
   },
   {
     id: crypto.randomUUID(),
-    planName: "gold",
-    features: ["79+ Tests Included", "Advanced Profilling", "Report in 24 hrs"],
-    originalPrice: "3299",
-    discountedPrice: "2499",
+    planName: 'gold',
+    features: ['79+ Tests Included', 'Advanced Profilling', 'Report in 24 hrs'],
+    originalPrice: '3299',
+    discountedPrice: '2499',
     isPopular: false,
   },
   {
     id: crypto.randomUUID(),
-    planName: "diamond",
-    features: ["90+ Tests Included", "Executive Screen", "Report in 24 hrs"],
-    originalPrice: "3999",
-    discountedPrice: "2999",
+    planName: 'diamond',
+    features: ['90+ Tests Included', 'Executive Screen', 'Report in 24 hrs'],
+    originalPrice: '3999',
+    discountedPrice: '2999',
     isPopular: true,
   },
   {
     id: crypto.randomUUID(),
-    planName: "platinum",
-    features: ["110+ Tests Included", "Full Body Master", "Report in 24 hrs"],
-    originalPrice: "4599",
-    discountedPrice: "3499",
+    planName: 'platinum',
+    features: ['110+ Tests Included', 'Full Body Master', 'Report in 24 hrs'],
+    originalPrice: '4599',
+    discountedPrice: '3499',
     isPopular: false,
   },
   {
     id: crypto.randomUUID(),
-    planName: "signature",
-    features: ["130+ Tests Included", "Elite Wellness", "Report in 24 hrs"],
-    originalPrice: "5299",
-    discountedPrice: "3999",
+    planName: 'signature',
+    features: ['130+ Tests Included', 'Elite Wellness', 'Report in 24 hrs'],
+    originalPrice: '5299',
+    discountedPrice: '3999',
     isPopular: false,
   },
 ]
@@ -201,123 +204,135 @@ export const healthPackages = [
 export const healthCategories = [
   {
     id: crypto.randomUUID(),
-    title: "heart",
-    img: "/health-category/1.png",
-    href: "#",
+    title: 'heart',
+    img: '/health-category/1.png',
+    href: '#',
   },
   {
     id: crypto.randomUUID(),
-    title: "liver",
-    img: "/health-category/2.png",
-    href: "#",
+    title: 'liver',
+    img: '/health-category/2.png',
+    href: '#',
   },
   {
     id: crypto.randomUUID(),
-    title: "kidneys",
-    img: "/health-category/3.png",
-    href: "#",
+    title: 'kidneys',
+    img: '/health-category/3.png',
+    href: '#',
   },
   {
     id: crypto.randomUUID(),
-    title: "bone health",
-    img: "/health-category/4.png",
-    href: "#",
+    title: 'bone health',
+    img: '/health-category/4.png',
+    href: '#',
   },
   {
     id: crypto.randomUUID(),
-    title: "hypertension",
-    img: "/health-category/5.png",
-    href: "#",
+    title: 'hypertension',
+    img: '/health-category/5.png',
+    href: '#',
   },
   {
     id: crypto.randomUUID(),
-    title: "diabetes",
-    img: "/health-category/6.png",
-    href: "#",
+    title: 'diabetes',
+    img: '/health-category/6.png',
+    href: '#',
   },
   {
     id: crypto.randomUUID(),
-    title: "gut health",
-    img: "/health-category/7.png",
-    href: "#",
+    title: 'gut health',
+    img: '/health-category/7.png',
+    href: '#',
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'no name',
+    img: '/health-category/8.png',
+    href: '#',
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'no name',
+    img: '/health-category/9.png',
+    href: '#',
   },
 ]
 
 export const individualCategories = [
   {
     id: crypto.randomUUID(),
-    title: "Complete Blood Count",
-    desc: "24 parameters",
-    originalPrice: "399",
-    discountedPrice: "299",
+    title: 'Complete Blood Count',
+    desc: '24 parameters',
+    originalPrice: '399',
+    discountedPrice: '299',
   },
   {
     id: crypto.randomUUID(),
-    title: "Throid Profile (T3, T4, TSH)",
-    desc: "3 parameters",
-    originalPrice: "799",
-    discountedPrice: "599",
+    title: 'Throid Profile (T3, T4, TSH)',
+    desc: '3 parameters',
+    originalPrice: '799',
+    discountedPrice: '599',
   },
   {
     id: crypto.randomUUID(),
-    title: "HbA1c - Diabetes Check",
-    desc: "1 parameter",
-    originalPrice: "499",
-    discountedPrice: "399",
+    title: 'HbA1c - Diabetes Check',
+    desc: '1 parameter',
+    originalPrice: '499',
+    discountedPrice: '399',
   },
   {
     id: crypto.randomUUID(),
-    title: "Vitamin D Total",
-    desc: "1 parameter",
-    originalPrice: "999",
-    discountedPrice: "699",
+    title: 'Vitamin D Total',
+    desc: '1 parameter',
+    originalPrice: '999',
+    discountedPrice: '699',
   },
   {
     id: crypto.randomUUID(),
-    title: "Lipid Profile",
-    desc: "9 parameters",
-    originalPrice: "599",
-    discountedPrice: "499",
+    title: 'Lipid Profile',
+    desc: '9 parameters',
+    originalPrice: '599',
+    discountedPrice: '499',
   },
 ]
 
 export const bookingSteps = [
   {
     id: crypto.randomUUID(),
-    title: "Choose a Test",
-    desc: "Search from a wide range of diagnostic tests health packages.",
-    icon: "/steps/step-1.png",
+    title: 'Choose a Test',
+    desc: 'Search from a wide range of diagnostic tests health packages.',
+    icon: '/steps/step-1.png',
   },
   {
     id: crypto.randomUUID(),
-    title: "Schedule Your Appointment",
-    desc: "Select your preferred date and time for sample collection.",
-    icon: "/steps/step-2.png",
+    title: 'Schedule Your Appointment',
+    desc: 'Select your preferred date and time for sample collection.',
+    icon: '/steps/step-2.png',
   },
   {
     id: crypto.randomUUID(),
-    title: "Sample Collection & Digital Reports",
-    desc: "Our trained professionals collect samples at your doorstep and reports are delivered online.",
-    icon: "/steps/step-3.png",
+    title: 'Sample Collection & Digital Reports',
+    desc: 'Our trained professionals collect samples at your doorstep and reports are delivered online.',
+    icon: '/steps/step-3.png',
   },
 ]
 
 export const whyChooseReasons = [
   {
     id: crypto.randomUUID(),
-    text: "NABL & ICMR accredited partner labs",
+    text: 'NABL & ICMR accredited partner labs',
   },
   {
     id: crypto.randomUUID(),
-    text: "Free home sample collection, zero hidden fees",
+    text: 'Free home sample collection, zero hidden fees',
   },
   {
     id: crypto.randomUUID(),
-    text: "Reports in 12-24 hours via Whatsapp & email",
+    text: 'Reports in 12-24 hours via Whatsapp & email',
   },
   {
     id: crypto.randomUUID(),
-    text: "Expert phlebotomists, safe & hygienic process",
+    text: 'Expert phlebotomists, safe & hygienic process',
   },
 ]
 
@@ -325,133 +340,133 @@ export const testimonies = [
   {
     id: crypto.randomUUID(),
     rating: 5,
-    msg: "The phlebotomist arrived exactly on time. Reports were Whatsapped in under 12 hours. Absolutely seamless experience!",
+    msg: 'The phlebotomist arrived exactly on time. Reports were Whatsapped in under 12 hours. Absolutely seamless experience!',
     author: {
-      name: "Priya S.",
-      location: "Bangalore",
+      name: 'Priya S.',
+      location: 'Bangalore',
       avatar:
-        "https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp",
+        'https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp',
     },
   },
   {
     id: crypto.randomUUID(),
     rating: 5,
-    msg: "Booked the Gold package for my parents. Entire process was smooth, professional and the staff was very courteous.",
+    msg: 'Booked the Gold package for my parents. Entire process was smooth, professional and the staff was very courteous.',
     author: {
-      name: "Rajesh M.",
-      location: "Bangalore",
+      name: 'Rajesh M.',
+      location: 'Bangalore',
       avatar:
-        "https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp",
+        'https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp',
     },
   },
   {
     id: crypto.randomUUID(),
     rating: 5,
-    msg: "Best diagnostic service. NABL certified, accurate results, and truly free home collection, Will use again!",
+    msg: 'Best diagnostic service. NABL certified, accurate results, and truly free home collection, Will use again!',
     author: {
-      name: "Anita K.",
-      location: "Bangalore",
+      name: 'Anita K.',
+      location: 'Bangalore',
       avatar:
-        "https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp",
+        'https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp',
     },
   },
   {
     id: crypto.randomUUID(),
     rating: 5,
-    msg: "Highly recommended for accurate diagnostic and grest customer support.",
+    msg: 'Highly recommended for accurate diagnostic and grest customer support.',
     author: {
-      name: "Amit K.",
-      location: "Bangalore",
+      name: 'Amit K.',
+      location: 'Bangalore',
       avatar:
-        "https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp",
+        'https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp',
     },
   },
   {
     id: crypto.randomUUID(),
     rating: 5,
-    msg: "The phlebotomist arrived exactly on time. Reports were Whatsapped in under 12 hours. Absolutely seamless experience!",
+    msg: 'The phlebotomist arrived exactly on time. Reports were Whatsapped in under 12 hours. Absolutely seamless experience!',
     author: {
-      name: "Priya S.",
-      location: "Bangalore",
+      name: 'Priya S.',
+      location: 'Bangalore',
       avatar:
-        "https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp",
+        'https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp',
     },
   },
   {
     id: crypto.randomUUID(),
     rating: 5,
-    msg: "Booked the Gold package for my parents. Entire process was smooth, professional and the staff was very courteous.",
+    msg: 'Booked the Gold package for my parents. Entire process was smooth, professional and the staff was very courteous.',
     author: {
-      name: "Rajesh M.",
-      location: "Bangalore",
+      name: 'Rajesh M.',
+      location: 'Bangalore',
       avatar:
-        "https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp",
+        'https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp',
     },
   },
   {
     id: crypto.randomUUID(),
     rating: 5,
-    msg: "Best diagnostic service. NABL certified, accurate results, and truly free home collection, Will use again!",
+    msg: 'Best diagnostic service. NABL certified, accurate results, and truly free home collection, Will use again!',
     author: {
-      name: "Anita K.",
-      location: "Bangalore",
+      name: 'Anita K.',
+      location: 'Bangalore',
       avatar:
-        "https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp",
+        'https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp',
     },
   },
   {
     id: crypto.randomUUID(),
     rating: 5,
-    msg: "Highly recommended for accurate diagnostic and grest customer support.",
+    msg: 'Highly recommended for accurate diagnostic and grest customer support.',
     author: {
-      name: "Amit K.",
-      location: "Bangalore",
+      name: 'Amit K.',
+      location: 'Bangalore',
       avatar:
-        "https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp",
+        'https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp',
     },
   },
   {
     id: crypto.randomUUID(),
     rating: 5,
-    msg: "The phlebotomist arrived exactly on time. Reports were Whatsapped in under 12 hours. Absolutely seamless experience!",
+    msg: 'The phlebotomist arrived exactly on time. Reports were Whatsapped in under 12 hours. Absolutely seamless experience!',
     author: {
-      name: "Priya S.",
-      location: "Bangalore",
+      name: 'Priya S.',
+      location: 'Bangalore',
       avatar:
-        "https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp",
+        'https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp',
     },
   },
   {
     id: crypto.randomUUID(),
     rating: 5,
-    msg: "Booked the Gold package for my parents. Entire process was smooth, professional and the staff was very courteous.",
+    msg: 'Booked the Gold package for my parents. Entire process was smooth, professional and the staff was very courteous.',
     author: {
-      name: "Rajesh M.",
-      location: "Bangalore",
+      name: 'Rajesh M.',
+      location: 'Bangalore',
       avatar:
-        "https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp",
+        'https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp',
     },
   },
   {
     id: crypto.randomUUID(),
     rating: 5,
-    msg: "Best diagnostic service. NABL certified, accurate results, and truly free home collection, Will use again!",
+    msg: 'Best diagnostic service. NABL certified, accurate results, and truly free home collection, Will use again!',
     author: {
-      name: "Anita K.",
-      location: "Bangalore",
+      name: 'Anita K.',
+      location: 'Bangalore',
       avatar:
-        "https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp",
+        'https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp',
     },
   },
   {
     id: crypto.randomUUID(),
     rating: 5,
-    msg: "Highly recommended for accurate diagnostic and grest customer support.",
+    msg: 'Highly recommended for accurate diagnostic and grest customer support.',
     author: {
-      name: "Amit K.",
-      location: "Bangalore",
+      name: 'Amit K.',
+      location: 'Bangalore',
       avatar:
-        "https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp",
+        'https://www.untitledui.com/images/avatars/ali-mahdi?w=288&h=288&q=75&fm=webp',
     },
   },
 ]
@@ -459,43 +474,43 @@ export const testimonies = [
 export const howItWorks = [
   {
     id: crypto.randomUUID(),
-    title: "book online",
-    desc: "Book via Whatsapp or our Website in under 2 minutes.",
-    cover: "/how-it-works/1.png",
-    coverColor: "bg-custom-1",
-    stepName: "book",
+    title: 'book online',
+    desc: 'Book via Whatsapp or our Website in under 2 minutes.',
+    cover: '/how-it-works/1.png',
+    coverColor: 'bg-custom-1',
+    stepName: 'book',
   },
   {
     id: crypto.randomUUID(),
-    title: "free home collection",
-    desc: "A certified phiebotomist visits your doorstep, hygienic and on time.",
-    cover: "/how-it-works/2.png",
-    coverColor: "bg-custom-2",
-    stepName: "collect",
+    title: 'free home collection',
+    desc: 'A certified phiebotomist visits your doorstep, hygienic and on time.',
+    cover: '/how-it-works/2.png',
+    coverColor: 'bg-custom-2',
+    stepName: 'collect',
   },
   {
     id: crypto.randomUUID(),
-    title: "advanced lav analysis",
-    desc: "your sample is analysed using advanced technology and strict quality checks.",
-    cover: "/how-it-works/3.png",
-    coverColor: "bg-custom-3",
-    stepName: "analyze",
+    title: 'advanced lav analysis',
+    desc: 'your sample is analysed using advanced technology and strict quality checks.',
+    cover: '/how-it-works/3.png',
+    coverColor: 'bg-custom-3',
+    stepName: 'analyze',
   },
   {
     id: crypto.randomUUID(),
-    title: "get reports in 24 hrs",
-    desc: "NABL certified results delivered directly to your phone and email.",
-    cover: "/how-it-works/4.png",
-    coverColor: "bg-custom-4",
-    stepName: "report",
+    title: 'get reports in 24 hrs',
+    desc: 'NABL certified results delivered directly to your phone and email.',
+    cover: '/how-it-works/4.png',
+    coverColor: 'bg-custom-4',
+    stepName: 'report',
   },
 ]
 
 export const blogs = [
   {
     id: crypto.randomUUID(),
-    title: "10 Simple Habits for a Healthier You",
-    cover: "/blogs/1.png",
+    title: '10 Simple Habits for a Healthier You',
+    cover: '/blogs/1.png',
     content: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam in quaerat porro, accusantium nostrum possimus. Hic molestias mollitia dicta iure consectetur corporis assumenda harum magnam modi. Animi debitis ullam velit.
     Recusandae, est deserunt! Suscipit magni harum tempora sed inventore nisi? Fugit amet eius eum enim quaerat ipsum deserunt earum nisi porro blanditiis corporis nobis, odit ut sed tenetur delectus neque!
     Sapiente eaque perferendis temporibus, laudantium odit nam? Perferendis doloribus provident vel harum impedit labore officia? A necessitatibus placeat doloremque rem ratione libero, sequi ex delectus facere hic modi, magnam accusamus.
@@ -546,12 +561,12 @@ export const blogs = [
     Excepturi saepe aperiam eius vero molestiae laborum deserunt incidunt odit soluta autem expedita aut, iste distinctio ad, in fugit voluptatibus. Eveniet architecto eum, earum tenetur expedita tempore at quos. Reprehenderit.
     Quae culpa exercitationem doloremque quod accusamus adipisci! Labore vero laborum ullam pariatur, molestias assumenda eius inventore perferendis at consectetur, sapiente expedita nemo enim sit ea, tempora sed eaque sequi fugiat?
     Natus, cupiditate dicta aperiam debitis exercitationem libero, eveniet odio vel possimus optio odit quo deserunt perferendis aliquid in, necessitatibus repellat cum quasi culpa modi dignissimos. Ab natus enim sed sequi!`,
-    date: "1747755289752",
+    date: '1747755289752',
   },
   {
     id: crypto.randomUUID(),
-    title: "Importance of Vitamin D for Your Body",
-    cover: "/blogs/2.png",
+    title: 'Importance of Vitamin D for Your Body',
+    cover: '/blogs/2.png',
     content: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam in quaerat porro, accusantium nostrum possimus. Hic molestias mollitia dicta iure consectetur corporis assumenda harum magnam modi. Animi debitis ullam velit.
     Recusandae, est deserunt! Suscipit magni harum tempora sed inventore nisi? Fugit amet eius eum enim quaerat ipsum deserunt earum nisi porro blanditiis corporis nobis, odit ut sed tenetur delectus neque!
     Sapiente eaque perferendis temporibus, laudantium odit nam? Perferendis doloribus provident vel harum impedit labore officia? A necessitatibus placeat doloremque rem ratione libero, sequi ex delectus facere hic modi, magnam accusamus.
@@ -602,12 +617,12 @@ export const blogs = [
     Excepturi saepe aperiam eius vero molestiae laborum deserunt incidunt odit soluta autem expedita aut, iste distinctio ad, in fugit voluptatibus. Eveniet architecto eum, earum tenetur expedita tempore at quos. Reprehenderit.
     Quae culpa exercitationem doloremque quod accusamus adipisci! Labore vero laborum ullam pariatur, molestias assumenda eius inventore perferendis at consectetur, sapiente expedita nemo enim sit ea, tempora sed eaque sequi fugiat?
     Natus, cupiditate dicta aperiam debitis exercitationem libero, eveniet odio vel possimus optio odit quo deserunt perferendis aliquid in, necessitatibus repellat cum quasi culpa modi dignissimos. Ab natus enim sed sequi!`,
-    date: "1748532924729",
+    date: '1748532924729',
   },
   {
     id: crypto.randomUUID(),
-    title: "Know More About Heart Health",
-    cover: "/blogs/3.png",
+    title: 'Know More About Heart Health',
+    cover: '/blogs/3.png',
     content: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam in quaerat porro, accusantium nostrum possimus. Hic molestias mollitia dicta iure consectetur corporis assumenda harum magnam modi. Animi debitis ullam velit.
     Recusandae, est deserunt! Suscipit magni harum tempora sed inventore nisi? Fugit amet eius eum enim quaerat ipsum deserunt earum nisi porro blanditiis corporis nobis, odit ut sed tenetur delectus neque!
     Sapiente eaque perferendis temporibus, laudantium odit nam? Perferendis doloribus provident vel harum impedit labore officia? A necessitatibus placeat doloremque rem ratione libero, sequi ex delectus facere hic modi, magnam accusamus.
@@ -658,12 +673,12 @@ export const blogs = [
     Excepturi saepe aperiam eius vero molestiae laborum deserunt incidunt odit soluta autem expedita aut, iste distinctio ad, in fugit voluptatibus. Eveniet architecto eum, earum tenetur expedita tempore at quos. Reprehenderit.
     Quae culpa exercitationem doloremque quod accusamus adipisci! Labore vero laborum ullam pariatur, molestias assumenda eius inventore perferendis at consectetur, sapiente expedita nemo enim sit ea, tempora sed eaque sequi fugiat?
     Natus, cupiditate dicta aperiam debitis exercitationem libero, eveniet odio vel possimus optio odit quo deserunt perferendis aliquid in, necessitatibus repellat cum quasi culpa modi dignissimos. Ab natus enim sed sequi!`,
-    date: "1746459362183",
+    date: '1746459362183',
   },
   {
     id: crypto.randomUUID(),
-    title: "Why Regular Health Check-ups Matter",
-    cover: "/blogs/4.png",
+    title: 'Why Regular Health Check-ups Matter',
+    cover: '/blogs/4.png',
     content: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam in quaerat porro, accusantium nostrum possimus. Hic molestias mollitia dicta iure consectetur corporis assumenda harum magnam modi. Animi debitis ullam velit.
     Recusandae, est deserunt! Suscipit magni harum tempora sed inventore nisi? Fugit amet eius eum enim quaerat ipsum deserunt earum nisi porro blanditiis corporis nobis, odit ut sed tenetur delectus neque!
     Sapiente eaque perferendis temporibus, laudantium odit nam? Perferendis doloribus provident vel harum impedit labore officia? A necessitatibus placeat doloremque rem ratione libero, sequi ex delectus facere hic modi, magnam accusamus.
@@ -714,39 +729,39 @@ export const blogs = [
     Excepturi saepe aperiam eius vero molestiae laborum deserunt incidunt odit soluta autem expedita aut, iste distinctio ad, in fugit voluptatibus. Eveniet architecto eum, earum tenetur expedita tempore at quos. Reprehenderit.
     Quae culpa exercitationem doloremque quod accusamus adipisci! Labore vero laborum ullam pariatur, molestias assumenda eius inventore perferendis at consectetur, sapiente expedita nemo enim sit ea, tempora sed eaque sequi fugiat?
     Natus, cupiditate dicta aperiam debitis exercitationem libero, eveniet odio vel possimus optio odit quo deserunt perferendis aliquid in, necessitatibus repellat cum quasi culpa modi dignissimos. Ab natus enim sed sequi!`,
-    date: "1781105812973",
+    date: '1781105812973',
   },
 ]
 
 export const faqs = [
   {
     id: crypto.randomUUID(),
-    question: "Is fasting required?",
+    question: 'Is fasting required?',
     answer:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni architecto repellendus repellat nemo dolorem? Obcaecati consequatur voluptatibus laboriosam expedita vel accusamus debitis dicta eius! Distinctio ad iusto porro reiciendis laboriosam!",
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni architecto repellendus repellat nemo dolorem? Obcaecati consequatur voluptatibus laboriosam expedita vel accusamus debitis dicta eius! Distinctio ad iusto porro reiciendis laboriosam!',
   },
   {
     id: crypto.randomUUID(),
-    question: "Is home collection really free?",
+    question: 'Is home collection really free?',
     answer:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni architecto repellendus repellat nemo dolorem? Obcaecati consequatur voluptatibus laboriosam expedita vel accusamus debitis dicta eius! Distinctio ad iusto porro reiciendis laboriosam!",
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni architecto repellendus repellat nemo dolorem? Obcaecati consequatur voluptatibus laboriosam expedita vel accusamus debitis dicta eius! Distinctio ad iusto porro reiciendis laboriosam!',
   },
   {
     id: crypto.randomUUID(),
-    question: "How long for reports?",
+    question: 'How long for reports?',
     answer:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni architecto repellendus repellat nemo dolorem? Obcaecati consequatur voluptatibus laboriosam expedita vel accusamus debitis dicta eius! Distinctio ad iusto porro reiciendis laboriosam!",
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni architecto repellendus repellat nemo dolorem? Obcaecati consequatur voluptatibus laboriosam expedita vel accusamus debitis dicta eius! Distinctio ad iusto porro reiciendis laboriosam!',
   },
   {
     id: crypto.randomUUID(),
-    question: "Which areas do you serve?",
+    question: 'Which areas do you serve?',
     answer:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni architecto repellendus repellat nemo dolorem? Obcaecati consequatur voluptatibus laboriosam expedita vel accusamus debitis dicta eius! Distinctio ad iusto porro reiciendis laboriosam!",
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni architecto repellendus repellat nemo dolorem? Obcaecati consequatur voluptatibus laboriosam expedita vel accusamus debitis dicta eius! Distinctio ad iusto porro reiciendis laboriosam!',
   },
 ]
 
-export const GenderEnums = ["MALE", "FEMALE", "OTHER"] as const
+export const GenderEnums = ['MALE', 'FEMALE', 'OTHER'] as const
 
-export const AddressTypeEnums = ["HOME", "OTHER"] as const
+export const AddressTypeEnums = ['HOME', 'OTHER'] as const
 
-export const PaymentMethodEnums = ["ONLINE_PAYMENT", "COD"] as const
+export const PaymentMethodEnums = ['ONLINE_PAYMENT', 'COD'] as const

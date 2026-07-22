@@ -2,17 +2,22 @@ import { Spinner } from '#/components/ui/spinner'
 import Blogs from '#/features/home/components/blogs'
 import BookingSteps from '#/features/home/components/booking-steps'
 import CTA from '#/features/home/components/cta'
+import {
+  FallbackHealthCategories,
+  FallbackPopularCategory,
+  FallbackTestimonials,
+} from '#/features/home/components/fallback-loaders'
 import FAQs from '#/features/home/components/faqs'
 import Features from '#/features/home/components/features'
-import HealthCategory from '#/features/home/components/health-category'
+import HealthCategory from '#/features/home/components/health-category.lazy'
 import Hero from '#/features/home/components/hero'
 import HowItWorks from '#/features/home/components/how-it-works'
 import IndividualCategory from '#/features/home/components/individual-category'
-import PopularPackages from '#/features/home/components/popular-packages'
+import PopularPackages from '#/features/home/components/popular-packages.lazy'
 import Testimonials from '#/features/home/components/testimonials.lazy'
 import WhyChooseUs from '#/features/home/components/why-choose-us'
 import { getAllTests } from '#/lib/tests.functions'
-import { createFileRoute, useRouter } from '@tanstack/react-router'
+import { ClientOnly, createFileRoute, useRouter } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({
   loader: async () => {
@@ -36,21 +41,25 @@ export const Route = createFileRoute('/')({
   ],
 })
 
-// const TestimonialsLazy = lazy(
-//   () => import('#/features/home/components/testimonials.lazy'),
-// )
 function App() {
-  const result = Route.useLoaderData()
   return (
     <main className={'mx-auto max-w-(--breakpoint-xl) space-y-8 px-4'}>
       <Hero />
       <Features />
-      <PopularPackages />
-      <HealthCategory />
+      <ClientOnly fallback={<FallbackPopularCategory />}>
+        <PopularPackages />
+      </ClientOnly>
+      <ClientOnly fallback={<FallbackHealthCategories />}>
+        <HealthCategory />
+      </ClientOnly>
+
       <IndividualCategory />
+
       <BookingSteps />
       <WhyChooseUs />
-      <Testimonials />
+      <ClientOnly fallback={<FallbackTestimonials />}>
+        <Testimonials />
+      </ClientOnly>
       <HowItWorks />
       <Blogs />
       <CTA />

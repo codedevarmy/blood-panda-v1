@@ -1,12 +1,7 @@
 import { IconStarFilled } from '@tabler/icons-react'
 
 // Import Swiper React components
-import {
-  A11y,
-  Autoplay,
-  // Keyboard,
-  Navigation,
-} from 'swiper/modules'
+import { A11y, Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 // Import Swiper styles
@@ -29,7 +24,11 @@ import {
 } from '#/components/ui/card'
 import { testimonies } from '#/constants'
 
+const isDev = import.meta.env.DEV
+
 export default function Testimonials() {
+  const doubleItems = [...testimonies, ...testimonies, ...testimonies]
+
   return (
     <section>
       <Card
@@ -37,27 +36,81 @@ export default function Testimonials() {
       >
         <CardHeader>
           <CardTitle>
-            <h3 className={'text-3xl'}>What Our Patients Say</h3>
+            <h3
+              className={
+                'text-center text-base md:text-xl lg:text-2xl xl:text-3xl'
+              }
+            >
+              What Our Patients Say
+            </h3>
           </CardTitle>
         </CardHeader>
 
         <CardContent>
           <Swiper
-            modules={[Navigation, A11y, Autoplay]}
+            modules={[A11y, Autoplay]}
             grabCursor={true}
             navigation={true}
             a11y={{ enabled: true }}
             loop={true}
             rewind={true}
-            autoplay={{ delay: 3000, pauseOnMouseEnter: true }}
+            autoplay={
+              isDev ? undefined : { delay: 3000, pauseOnMouseEnter: true }
+            }
             spaceBetween={30}
             slidesPerView={3}
             // onSlideChange={() => console.log('slide change')}
             // onSwiper={(swiper) => console.log(swiper)}
+            breakpoints={{
+              '320': {
+                spaceBetween: 25,
+                slidesPerView: 1.5,
+              },
+              '480': {
+                spaceBetween: 25,
+                slidesPerView: 1.9,
+              },
+              '576': {
+                spaceBetween: 25,
+                slidesPerView: 2.1,
+              },
+              '640': {
+                spaceBetween: 25,
+                slidesPerView: 2.5,
+              },
+              '720': {
+                spaceBetween: 25,
+                slidesPerView: 3.2,
+              },
+              '1190': {
+                spaceBetween: 25,
+                slidesPerView: 4.1,
+              },
+              // '1236': {
+              //   spaceBetween: 25,
+              //   slidesPerView: 6.1,
+              // },
+              '1280': {
+                spaceBetween: 25,
+                slidesPerView: 4.5,
+              },
+              // '1366': {
+              //   spaceBetween: 25,
+              //   slidesPerView: 6.5,
+              // },
+              // '1440': {
+              //   spaceBetween: 25,
+              //   slidesPerView: 6.5,
+              // },
+              // '1536': {
+              //   spaceBetween: 25,
+              //   slidesPerView: 6.5,
+              // },
+            }}
           >
-            {testimonies.map((item) => {
+            {doubleItems.map((item) => {
               return (
-                <SwiperSlide key={item.id} className={'py-4'}>
+                <SwiperSlide key={crypto.randomUUID()} className={'py-4'}>
                   <Card className={'h-full w-full'}>
                     <CardHeader>
                       <CardDescription

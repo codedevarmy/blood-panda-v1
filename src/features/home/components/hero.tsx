@@ -1,5 +1,5 @@
 import { Badge } from '#/components/ui/badge'
-import { Button } from '#/components/ui/button'
+import { buttonVariants } from '#/components/ui/button'
 import {
   Card,
   CardAction,
@@ -8,7 +8,14 @@ import {
   CardHeader,
   CardTitle,
 } from '#/components/ui/card'
-import { FlaskConicalIcon, GlassesIcon, PackageOpenIcon } from 'lucide-react'
+import {
+  FlaskConicalIcon,
+  GlassesIcon,
+  HomeIcon,
+  PackageOpenIcon,
+  PipetteIcon,
+  StarIcon,
+} from 'lucide-react'
 
 import {
   InputGroup,
@@ -17,12 +24,47 @@ import {
   InputGroupInput,
   InputGroupText,
 } from '#/components/ui/input-group'
+import {
+  Item,
+  ItemContent,
+  ItemDescription,
+  ItemMedia,
+  ItemTitle,
+} from '#/components/ui/item'
+import { Link } from '@tanstack/react-router'
+
+const stats = [
+  {
+    id: crypto.randomUUID(),
+    stat: '4.9/5',
+    description: 'Rating',
+    icon: <StarIcon />,
+  },
+  {
+    id: crypto.randomUUID(),
+    stat: '10000+',
+    description: 'Samples Collected ',
+    icon: <PipetteIcon />,
+  },
+  {
+    id: crypto.randomUUID(),
+    stat: 'Free',
+    description: 'Home Collection',
+    icon: <HomeIcon />,
+  },
+  {
+    id: crypto.randomUUID(),
+    stat: 'Certified',
+    description: 'Labs',
+    icon: <FlaskConicalIcon />,
+  },
+]
 
 export default function Hero() {
   return (
     <section
       className={
-        'grid grid-cols-1 lg:grid-cols-2 place-items-center gap-4 relative aspect-square sm:aspect-14/9 md:aspect-video lg:aspect-20/9 xl:aspect-24/9'
+        'grid grid-cols-1 lg:grid-cols-2 place-items-center gap-4 relative aspect-auto sm:aspect-14/9 md:aspect-video lg:aspect-20/9 xl:aspect-24/9 mt-4'
       }
     >
       <div className={'w-full h-full absolute top-0 left-0'}>
@@ -34,21 +76,34 @@ export default function Hero() {
           className={'w-full h-full object-cover'}
         />
       </div>
-      <Card className="z-10 bg-background/10 backdrop-blur-xs border-none ring-0 shadow-none rounded-none border-0 h-full justify-center scroll-fade-e">
+      <Card className="z-10 bg-background/10 backdrop-blur-xs border-none ring-0 shadow-none rounded-none border-0 h-full justify-center scroll-fade-e gap-4">
         <CardHeader>
+          <CardDescription>
+            <p className={'text-destructive font-semibold text-base'}>
+              Bangalore's Trusted Partner for Diagnostic Care
+            </p>
+          </CardDescription>
           <CardTitle>
-            <h1 className={'text-5xl font-semibold text-destructive'}>
-              Bengaluru's Trusted partner for Diagnostic Care
+            <h1
+              className={
+                'text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold'
+              }
+            >
+              <span className={'text-foreground'}>Your Health.</span>{' '}
+              <span className={'text-primary'}>Our Priority</span>
             </h1>
           </CardTitle>
         </CardHeader>
         <CardContent className={'space-y-4'}>
           <CardDescription>
-            <p className={'text-lg font-medium'}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Veritatis illum inventore voluptatum id tenetur rerum ex
-              laboriosam in ducimus incidunt veniam qui expedita quia, atque
-              ipsa dolor vel eum debitis.
+            <p
+              className={
+                'text-sm md:text-base font-normal text-muted-foreground'
+              }
+            >
+              With Blood Panda ,book trusted diagnostic tests and health
+              packages from the comfort of your home. Fast sample collection,
+              accurate reports, and expert care across Bangalore.
             </p>
           </CardDescription>
 
@@ -73,18 +128,53 @@ export default function Hero() {
           </div>
 
           <CardAction className={'space-x-2 justify-self-start'}>
-            <Button type="button">
+            <Link to="/booking" viewTransition className={buttonVariants()}>
               <FlaskConicalIcon className="size-4" /> Book a Test
-            </Button>
-            <Button type="button" variant={'outline'}>
+            </Link>
+            <Link
+              to="/tests"
+              viewTransition
+              className={buttonVariants({
+                variant: 'outline',
+              })}
+            >
               <PackageOpenIcon className="size-4" />
               Explore Packages
-            </Button>
+            </Link>
           </CardAction>
         </CardContent>
       </Card>
 
       <div className={'z-10 hidden lg:block'}>&nbsp;</div>
+
+      <div
+        className={
+          'absolute -bottom-96 sm:-bottom-48 md:-bottom-40 lg:-bottom-24 xl:-bottom-12 z-10 bg-background backdrop-blur-lg rounded-xl border-0 w-full max-w-6xl sscroll-fade-y'
+        }
+        // className={
+        //   'col-span-full justify-self-center z-10 bg-accent/10 backdrop-blur-lg border-none ring-0 shadow-none rounded-none border-0 w-full max-w-6xl scroll-fade-e'
+        // }
+      >
+        <div
+          className={
+            'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 py-4'
+          }
+        >
+          {stats.map((stat) => (
+            <Item key={stat.id} variant={'outline'}>
+              <ItemMedia variant="image">{stat.icon}</ItemMedia>
+              <ItemContent>
+                <ItemTitle className={'font-semibold text-base'}>
+                  {stat.stat}
+                </ItemTitle>
+                <ItemDescription className={'font-medium'}>
+                  {stat.description}
+                </ItemDescription>
+              </ItemContent>
+            </Item>
+          ))}
+        </div>
+      </div>
     </section>
   )
 }

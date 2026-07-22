@@ -16,13 +16,17 @@ export default function FAQs() {
       >
         <CardHeader>
           <CardTitle>
-            <h3 className={'text-center text-3xl'}>
+            <h3
+              className={
+                'text-center text-base md:text-xl lg:text-2xl xl:text-3xl'
+              }
+            >
               Frequently Asked Questions
             </h3>
           </CardTitle>
         </CardHeader>
 
-        <CardContent className={'mx-auto w-full max-w-xl'}>
+        <CardContent className={'mx-auto w-full max-w-xl px-0'}>
           <Accordion type="single">
             {faqs.map((faq) => {
               return (

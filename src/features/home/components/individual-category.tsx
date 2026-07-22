@@ -9,12 +9,20 @@ import {
   CardHeader,
   CardTitle,
 } from '#/components/ui/card'
-import { individualCategories } from '#/constants'
+// import { individualCategories } from '#/constants'
 import { formatCurrency } from '#/lib/utils'
 import { IconArrowUpRight } from '@tabler/icons-react'
+// import { useQuery } from '@tanstack/react-query'
+import { Await, getRouteApi, Link } from '@tanstack/react-router'
+// import { Skeleton } from 'boneyard-js/react'
 import { PlusCircle } from 'lucide-react'
+import { FallbackIndividials } from './fallback-loaders'
+
+const routeApi = getRouteApi('/')
 
 export default function IndividualCategory() {
+  const { deferred } = routeApi.useLoaderData()
+
   return (
     <section>
       <Card
@@ -22,52 +30,90 @@ export default function IndividualCategory() {
       >
         <CardHeader className={'px-0'}>
           <CardTitle>
-            <h2 className={'text-4xl font-semibold'}>
+            <h2
+              className={
+                'text:xl md:text-2xl lg:text-3xl xl:text-4xl font-medium lg:font-semibold'
+              }
+            >
               Browse Tests by Individual Category
             </h2>
           </CardTitle>
-          <CardDescription>
-            <p className={'text-lg'}>
+          <CardDescription className="row-start-2 sm:row-start-auto">
+            <p className={'text-xs sm:text-sm md:text-base lg:text-lg'}>
               Find the right diagnostic tests based on your health concern.
             </p>
           </CardDescription>
-          <CardAction className={'space-x-2'}>
-            <Button variant={'outline'}>
-              View All
-              <IconArrowUpRight className={'size-4'} />
+          <CardAction
+            className={
+              'col-start-1 sm:col-start-2 row-start-3 sm:row-start-1 justify-self-start sm:justify-self-end mt-2 sm:mt-0'
+            }
+          >
+            <Button asChild variant={'outline'}>
+              <Link to="/tests" viewTransition>
+                View All
+                <IconArrowUpRight className={'size-4'} />
+              </Link>
             </Button>
           </CardAction>
         </CardHeader>
 
-        <CardContent className={'flex items-center gap-4 px-0'}>
-          {individualCategories.map((item) => {
-            return (
-              <Card key={item.id} className={'w-full'}>
-                <CardHeader>
-                  <CardTitle>
-                    <h4>{item.title}</h4>
-                  </CardTitle>
-                  <CardDescription>
-                    <p>{item.desc}</p>
-                  </CardDescription>
-                </CardHeader>
+        {/* <CardContent>
+          <CardDescription className={'text-center'}>
+            <p className={'text-lg font-semibold text-muted-foreground'}>
+              No individual categories found.
+            </p>
+          </CardDescription>
+        </CardContent> */}
 
-                <CardContent>
-                  <Badge variant={'ghost'} className={'line-through'}>
-                    {formatCurrency(item.originalPrice)}
-                  </Badge>
-                  <h5 className={'text-lg font-semibold'}>
-                    {formatCurrency(item.discountedPrice)}
-                  </h5>
+        <CardContent className={'px-0'}>
+          <Await promise={deferred} fallback={<FallbackIndividials />}>
+            {(data) => {
+              return (
+                <CardContent
+                  className={
+                    'px-0 scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-400/50 scrollbar-track-transparent flex gap-4 snap-x snap-mandatory scroll-smooth overflow-x-scroll scroll-fade-x'
+                  }
+                >
+                  {data.map((item) => {
+                    return (
+                      <Card
+                        className={
+                          'w-full min-w-xs md:min-w-sm snap-start pb-0 my-4'
+                        }
+                        key={item.id}
+                      >
+                        <CardHeader>
+                          <CardTitle>
+                            <h4>{item.name}</h4>
+                          </CardTitle>
+                          <CardDescription>
+                            <p>{'N/a'}</p>
+                          </CardDescription>
+                        </CardHeader>
+
+                        <CardContent>
+                          <Badge variant={'ghost'} className={'line-through'}>
+                            {formatCurrency(item.originalPrice)}
+                          </Badge>
+                          <h5 className={'text-lg font-semibold'}>
+                            {formatCurrency(item.discountedPrice)}
+                          </h5>
+                        </CardContent>
+                        <CardFooter>
+                          <Button
+                            variant={'outline'}
+                            className={'w-full rounded-full'}
+                          >
+                            Add <PlusCircle className={'size-4'} />
+                          </Button>
+                        </CardFooter>
+                      </Card>
+                    )
+                  })}
                 </CardContent>
-                <CardFooter>
-                  <Button variant={'outline'} className={'w-full rounded-full'}>
-                    Add <PlusCircle className={'size-4'} />
-                  </Button>
-                </CardFooter>
-              </Card>
-            )
-          })}
+              )
+            }}
+          </Await>
         </CardContent>
       </Card>
     </section>

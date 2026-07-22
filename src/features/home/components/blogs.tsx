@@ -28,17 +28,23 @@ export default function Blogs() {
       >
         <CardHeader className={'px-0'}>
           <CardTitle>
-            <h3 className={'text-3xl'}>Health Tips & Blogs</h3>
+            <h3
+              className={
+                'text-center text-base md:text-xl lg:text-2xl xl:text-3xl'
+              }
+            >
+              Health Tips & Blogs
+            </h3>
           </CardTitle>
           <CardDescription>
-            <p>Stay informed with our latest health articles</p>
+            <p className={'text-center'}>
+              Stay informed with our latest health articles
+            </p>
           </CardDescription>
         </CardHeader>
 
         <CardContent
-          className={
-            'grid grid-cols-1 gap-4 px-0 sm:grid-cols-2 lg:grid-cols-4'
-          }
+          className={'grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4'}
         >
           {blogs.map((blog) => {
             return (
