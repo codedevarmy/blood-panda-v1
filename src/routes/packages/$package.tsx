@@ -20,6 +20,7 @@ import {
 import { packageIcons } from '#/constants'
 import {
   capitalizeFirstLetter,
+  cn,
   formatCurrency,
   formattedCategoryName,
 } from '#/lib/utils'
@@ -31,6 +32,10 @@ import {
 import { useQuery } from '@tanstack/react-query'
 import { Skeleton } from 'boneyard-js/react'
 import { CheckCircle2Icon } from 'lucide-react'
+
+const baseUrl = import.meta.env.VITE_BETTER_AUTH_URL || 'http://localhost:3000'
+
+const imageUrl = `${baseUrl}/packages`
 
 export const Route = createFileRoute('/packages/$package')({
   loader: async ({ params }) => {
@@ -66,6 +71,21 @@ function RouteComponent() {
 
   const packageSlug = params.package
 
+  const headingClass = cn(
+    packageSlug === 'silver'
+      ? 'text-silver'
+      : packageSlug === 'gold'
+        ? 'text-gold'
+        : packageSlug === 'diamond'
+          ? 'text-diamond'
+          : packageSlug === 'platinum'
+            ? 'text-platinum'
+            : packageSlug === 'signature'
+              ? 'text-signature'
+              : '',
+    'text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold lg:font-bold',
+  )
+
   return (
     <main className={'mx-auto max-w-(--breakpoint-xl) px-4 py-12'}>
       <Skeleton name={`package-details-${packageSlug}`} loading={isLoading}>
@@ -73,12 +93,12 @@ function RouteComponent() {
           <section className={''}>
             <div
               className={
-                'relative aspect-square h-full w-full sm:aspect-video md:aspect-video lg:aspect-26/9'
+                'relative aspect-11/9 h-full w-full sm:aspect-14/9 md:aspect-18/9 lg:aspect-22/9'
               }
             >
               <img
-                src="/packages/packages-bg.png"
-                alt="packages-bg"
+                src={`${imageUrl}/${data?.cover}`}
+                alt={`Cover image for ${capitalizeFirstLetter(packageSlug)} package`}
                 width={'100%'}
                 height={'100%'}
                 className={
@@ -91,24 +111,32 @@ function RouteComponent() {
                 }
               >
                 <h1 className={'space-y-2'}>
-                  <span className={'block text-4xl font-bold text-primary'}>
+                  <span className={cn('block', headingClass)}>
                     {capitalizeFirstLetter(packageSlug)}
                   </span>
                   <span
                     className={
-                      'block text-2xl font-semibold text-muted-foreground'
+                      'block text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold text-muted-foreground'
                     }
                   >
                     Health Package
                   </span>
                 </h1>
-                <p className={'text-lg text-muted-foreground'}>
+                <p
+                  className={
+                    'text-sm md:text-base lg:text-lg text-muted-foreground'
+                  }
+                >
                   A Complete Health Check for You & Your Family
                 </p>
 
-                <div className={'space-y-2'}>
+                <div
+                  className={
+                    'space-y-2 bg-accent/50 backdrop-blur-md px-2 rounded-xl'
+                  }
+                >
                   <div className={'inline-flex items-center gap-2'}>
-                    <p className={'text-2xl font-semibold text-primary'}>
+                    <p className={'text-2xl font-semibold text-destructive'}>
                       {formatCurrency(data?.discountedAmount || '0')}
                     </p>
                     <span
@@ -116,11 +144,13 @@ function RouteComponent() {
                     >
                       {formatCurrency(data?.originalAmount || '0')}
                     </span>
-                    <Badge>{data?.offerAmount} % Off</Badge>
+                    <Badge variant={'destructive'}>
+                      {data?.offerAmount} % Off
+                    </Badge>
                   </div>
                 </div>
 
-                <Button variant={'outline'}>
+                <Button variant={'destructive'}>
                   <IconCalendarCheck className={'size-4'} />
                   {`Book ${capitalizeFirstLetter(packageSlug)} Package Now`}
                 </Button>

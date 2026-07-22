@@ -44,6 +44,12 @@
   --sidebar-accent-foreground: oklch(0.216 0.006 56.043);
   --sidebar-border: oklch(0.923 0.003 48.717);
   --sidebar-ring: oklch(0.709 0.01 56.259);
+
+  --silver: oklch(55.439% 0.04078 257.446);
+  --gold: oklch(55.527% 0.14548 48.986);
+  --diamond: oklch(29.044% 0.15833 263.675);
+  --platinum: oklch(37.293% 0.03067 259.757);
+  --signature: oklch(0.577 0.245 27.325);
 }
 
 .dark {
@@ -78,6 +84,12 @@
   --sidebar-accent-foreground: oklch(0.985 0.001 106.423);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.553 0.013 58.071);
+
+  --silver: oklch(55.439% 0.04078 257.446);
+  --gold: oklch(55.527% 0.14548 48.986);
+  --diamond: oklch(29.044% 0.15833 263.675);
+  --platinum: oklch(37.293% 0.03067 259.757);
+  --signature: oklch(0.577 0.245 27.325);
 }
 
 @theme inline {
@@ -124,6 +136,12 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  --color-silver: var(--silver);
+  --color-gold: var(--gold);
+  --color-diamond: var(--diamond);
+  --color-platinum: var(--platinum);
+  --color-signature: var(--signature);
 }
 
 @layer base {
