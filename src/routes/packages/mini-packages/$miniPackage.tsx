@@ -16,6 +16,7 @@ import { CheckCircle2Icon } from 'lucide-react'
 import { getMiniPackageDetailsByName } from '#/lib/mini-package.functions'
 import { formatCurrency, formatSlug } from '#/lib/utils'
 import { useQuery } from '@tanstack/react-query'
+import { Image } from '@unpic/react'
 import { Skeleton } from 'boneyard-js/react'
 
 export const Route = createFileRoute('/packages/mini-packages/$miniPackage')({
@@ -63,7 +64,7 @@ function RouteComponent() {
             'relative aspect-square h-full w-full sm:aspect-video md:aspect-video lg:aspect-26/9'
           }
         >
-          <img
+          {/* <img
             src="/packages/packages-bg.png"
             alt="packages-bg"
             width={'100%'}
@@ -71,6 +72,17 @@ function RouteComponent() {
             className={
               'absolute top-0 left-0 -z-10 h-full w-full object-cover rounded-3xl'
             }
+          /> */}
+          <Image
+            src="/packages/packages-bg.png"
+            alt="packages-bg"
+            layout="constrained"
+            width={1282}
+            height={488}
+            className={
+              'absolute top-0 left-0 -z-10 h-full w-full object-cover rounded-3xl'
+            }
+            priority
           />
           <div
             className={

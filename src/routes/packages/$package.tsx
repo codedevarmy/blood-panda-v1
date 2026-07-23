@@ -30,6 +30,7 @@ import {
   IconChevronRight,
 } from '@tabler/icons-react'
 import { useQuery } from '@tanstack/react-query'
+import { Image } from '@unpic/react'
 import { Skeleton } from 'boneyard-js/react'
 import { CheckCircle2Icon } from 'lucide-react'
 
@@ -111,7 +112,7 @@ function RouteComponent() {
                 'relative aspect-11/9 h-full w-full sm:aspect-14/9 md:aspect-18/9 lg:aspect-22/9'
               }
             >
-              <img
+              {/* <img
                 src={`${imageUrl}/${data?.cover}`}
                 alt={`Cover image for ${capitalizeFirstLetter(packageSlug)} package`}
                 width={'100%'}
@@ -119,6 +120,17 @@ function RouteComponent() {
                 className={
                   'absolute top-0 left-0 -z-10 h-full w-full object-cover rounded-3xl'
                 }
+              /> */}
+              <Image
+                src={`${imageUrl}/${data?.cover}`}
+                alt={`Cover image for ${capitalizeFirstLetter(packageSlug)} package`}
+                layout="constrained"
+                width={1282}
+                height={488}
+                className={
+                  'absolute top-0 left-0 -z-10 h-full w-full object-cover rounded-3xl'
+                }
+                priority
               />
               <div
                 className={

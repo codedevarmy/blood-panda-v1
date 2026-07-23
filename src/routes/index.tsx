@@ -25,7 +25,11 @@ export const Route = createFileRoute('/')({
 
     const defferedMiniPackages = getMiniPackages()
 
-    return { deferredTests, defferedPackages, defferedMiniPackages }
+    return {
+      deferredTests,
+      defferedPackages,
+      defferedMiniPackages,
+    }
   },
   component: App,
   pendingComponent: PendingComponent,

@@ -9,6 +9,7 @@ import {
 } from '#/lib/tests.functions'
 import { selectCategorySchema } from '#/lib/validators/tests-schema'
 import { createFileRoute, useRouter } from '@tanstack/react-router'
+import { Image } from '@unpic/react'
 
 export const Route = createFileRoute('/tests')({
   validateSearch: selectCategorySchema,
@@ -51,6 +52,7 @@ export const Route = createFileRoute('/tests')({
       deferredTests: loadedTests,
     }
   },
+  wrapInSuspense: true,
   component: RouteComponent,
   errorComponent: ({ error }) => ErrorComponent({ error }),
   notFoundComponent: NotFoundComponent,
@@ -66,12 +68,21 @@ function RouteComponent() {
             'relative aspect-14/9 h-full w-full sm:aspect-video md:aspect-20/9 lg:aspect-26/9'
           }
         >
-          <img
+          {/* <img
             src="/packages/packages-bg.png"
             alt="packages-bg"
             width={'100%'}
             height={'100%'}
             className={'absolute top-0 left-0 -z-10 h-full w-full object-cover'}
+          /> */}
+          <Image
+            src="/packages/packages-bg.png"
+            alt="packages-bg"
+            layout="constrained"
+            width={1282}
+            height={488}
+            className={'absolute top-0 left-0 -z-10 h-full w-full object-cover'}
+            priority
           />
           <div
             className={

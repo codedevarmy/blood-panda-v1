@@ -3,6 +3,7 @@ import {
   IconFileInvoice,
   IconPhoneCall,
 } from '@tabler/icons-react'
+import { FlaskConicalIcon, HomeIcon, PipetteIcon, StarIcon } from 'lucide-react'
 
 export const navLinks = [
   {
@@ -153,6 +154,37 @@ export const featureItems = [
     icon: <IconFileInvoice className={'size-8 fill-blue-700 stroke-blue-50'} />,
     bgColor: 'bg-blue-500/20',
     href: '/profile',
+  },
+]
+
+export const heroStats = [
+  {
+    id: crypto.randomUUID(),
+    stat: '4.9/5',
+    description: 'Rating',
+    icon: <StarIcon className={'stroke-destructive'} />,
+    bgColor: 'bg-destructive/10',
+  },
+  {
+    id: crypto.randomUUID(),
+    stat: '10000+',
+    description: 'Samples Collected ',
+    icon: <PipetteIcon className={'stroke-green-500'} />,
+    bgColor: 'bg-green-500/10',
+  },
+  {
+    id: crypto.randomUUID(),
+    stat: 'Free',
+    description: 'Home Collection',
+    icon: <HomeIcon className={'stroke-purple-500'} />,
+    bgColor: 'bg-purple-500/10',
+  },
+  {
+    id: crypto.randomUUID(),
+    stat: 'Certified',
+    description: 'Labs',
+    icon: <FlaskConicalIcon className={'stroke-sky-500'} />,
+    bgColor: 'bg-sky-500/10',
   },
 ]
 
