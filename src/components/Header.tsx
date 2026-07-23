@@ -73,11 +73,12 @@ export default function Header() {
                           'p-1',
                           'rounded-none',
                           'border-none',
-                          // 'data-active:bg-transparent data-active:hover:bg-transparent data-active:focus:bg-transparent',
-                          // 'data-active:border-b-2 data-active:hover:border-b-2 data-active:focus:border-b-2',
+                          'font-normal',
                         )}
                       >
-                        <Button variant={'ghost'}>{link.label}</Button>
+                        <Button variant={'ghost'} className={'bg-transparent!'}>
+                          {link.label}
+                        </Button>
                       </NavigationMenuLink>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
