@@ -67,18 +67,19 @@ export default function Header() {
                     <DropdownMenuTrigger asChild>
                       <NavigationMenuLink
                         active={isPackagesRoute}
-                        asChild
                         className={cn(
                           'hover:bg-transparent focus:bg-transparent',
                           'p-1',
                           'rounded-none',
-                          'border-none',
-                          'font-normal',
+                          'border-primary',
+                          'data-active:bg-transparent data-active:hover:bg-transparent data-active:focus:bg-transparent',
+                          'data-active:border-b-2 data-active:hover:border-b-2 data-active:focus:border-b-2',
+                          'cursor-pointer',
                         )}
                       >
-                        <Button variant={'ghost'} className={'bg-transparent!'}>
-                          {link.label}
-                        </Button>
+                        {/* <Button variant={'ghost'} className={'bg-transparent!'}> */}
+                        {link.label}
+                        {/* </Button> */}
                       </NavigationMenuLink>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>

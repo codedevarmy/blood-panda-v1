@@ -1,7 +1,6 @@
 import { IconLogout, IconMenu4 } from '@tabler/icons-react'
 import { ShoppingBasketIcon } from 'lucide-react'
 import { useState } from 'react'
-// import { Link, NavLink, useLocation, useNavigate } from 'react-router'
 
 import { Button, buttonVariants } from '#/components/ui/button'
 import {
@@ -41,7 +40,6 @@ import { signOut, useSession } from '#/lib/auth-client'
 import { useCart } from '#/stores/useCart'
 import { Link, useLocation, useNavigate } from '@tanstack/react-router'
 import { toast } from 'sonner'
-import { ModeToggle } from './mode-toggle'
 import { Badge } from './ui/badge'
 import { Skeleton } from './ui/skeleton'
 
@@ -118,7 +116,6 @@ export default function MobileMenu() {
                         <DropdownMenuTrigger asChild>
                           <NavigationMenuLink
                             active={isPackagesRoute}
-                            asChild
                             className={cn(
                               'hover:bg-transparent focus:bg-transparent',
                               'p-1',
@@ -126,11 +123,10 @@ export default function MobileMenu() {
                               'border-primary',
                               'data-active:bg-transparent data-active:hover:bg-transparent data-active:focus:bg-transparent',
                               'data-active:border-b-2 data-active:hover:border-b-2 data-active:focus:border-b-2',
+                              'cursor-pointer',
                             )}
                           >
-                            <Link to={link.href} viewTransition>
-                              {link.label}
-                            </Link>
+                            {link.label}
                           </NavigationMenuLink>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent>
@@ -206,19 +202,47 @@ export default function MobileMenu() {
             </NavigationMenu>
           </div>
 
-          <div>
-            <p className={'text-sm font-semibold'}>Contact the owner:</p>
-            <address>
+          <div className={'space-y-2'}>
+            <p className={'text-sm font-semibold underline underline-offset-2'}>
+              Contact the owner:
+            </p>
+            <address className={'space-y-1'}>
               <p className={'text-sm'}>
                 123 Main Street, Suite 456
                 <br />
                 Cityville, ST 12345
-                <br />
-                Phone: (123) 456-7890
-                <br />
-                Email:{' '}
-                <a href="mailto:someone@email.com" className={'text-primary'}>
-                  Email us
+              </p>
+              <p>
+                Phone:{' '}
+                <a
+                  href="tel:+918277842200"
+                  className={'text-primary'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  +91 82778 42200
+                </a>
+              </p>
+              <p>
+                Email:
+                <a
+                  href="mailto:support@bloodpanda.com"
+                  className={'text-primary'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  support@bloodpanda.com
+                </a>
+              </p>
+              <p>
+                Want to chat?
+                <a
+                  href="https://wa.link/fvmq1j"
+                  className={'text-primary'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Chat Now
                 </a>
               </p>
             </address>
@@ -279,9 +303,9 @@ export default function MobileMenu() {
               </li>
             )}
 
-            <li>
+            {/* <li>
               <ModeToggle />
-            </li>
+            </li> */}
           </ul>
           {isPending || isRefetching ? (
             <Skeleton
@@ -291,13 +315,24 @@ export default function MobileMenu() {
               })}
             />
           ) : !data ? (
-            <Button asChild>
+            <Button
+              asChild
+              className={
+                'w-full bg-destructive hover:bg-accent hover:text-destructive transition-all duration-300 ease-in-out'
+              }
+            >
               <Link to="/login" viewTransition>
                 Login
               </Link>
             </Button>
           ) : (
-            <Button type="button" onClick={handleSignOut}>
+            <Button
+              type="button"
+              onClick={handleSignOut}
+              className={
+                'w-full bg-destructive hover:bg-accent hover:text-destructive transition-all duration-300 ease-in-out'
+              }
+            >
               LogOut <IconLogout className={'size-4'} />
             </Button>
           )}

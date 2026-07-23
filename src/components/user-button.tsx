@@ -10,8 +10,14 @@ import {
   DropdownMenuTrigger,
 } from '#/components/ui/dropdown-menu'
 import { signOut } from '#/lib/auth-client'
-import { IconLogout } from '@tabler/icons-react'
-// import { Link, useNavigate } from 'react-router'
+import {
+  IconCalendarTime,
+  IconLogout,
+  IconReceiptRupee,
+  IconSettingsSpark,
+  IconShoppingCartShare,
+  IconUserScan,
+} from '@tabler/icons-react'
 import { Link, useNavigate } from '@tanstack/react-router'
 import { toast } from 'sonner'
 import { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from './ui/avatar'
@@ -81,29 +87,34 @@ export default function UserButton({ user }: UserButtonProps) {
       <DropdownMenuContent className="w-40" align="end">
         <DropdownMenuGroup>
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuItem>
+          <DropdownMenuItem asChild>
             <Link to="/profile" viewTransition>
-              Profile
+              <IconUserScan className={'size-4'} /> Profile
             </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem>
+          <DropdownMenuItem asChild>
             <Link to="/cart" viewTransition>
-              My Cart
+              <IconShoppingCartShare className={'size-4'} /> My Cart
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link to="/booking" viewTransition>
+              <IconCalendarTime className={'size-4'} /> Booking
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Link to="/booking" viewTransition>
-              Booking
-            </Link>
+            <IconReceiptRupee className={'size-4'} /> Billing
           </DropdownMenuItem>
-          <DropdownMenuItem>Billing</DropdownMenuItem>
-          <DropdownMenuItem>Settings</DropdownMenuItem>
+          <DropdownMenuItem>
+            <IconSettingsSpark className={'size-4'} />
+            Settings
+          </DropdownMenuItem>
         </DropdownMenuGroup>
 
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
-            <Button className={'w-full'} onClick={handleSignOut}>
+            <Button className={'w-full bg-destructive'} onClick={handleSignOut}>
               Log out
               <IconLogout className={'size-4'} />
             </Button>

@@ -15,7 +15,14 @@ export const Route = createFileRoute('/contact-us')({
 function RouteComponent() {
   return (
     <main className={'mx-auto max-w-(--breakpoint-xl) space-y-8 px-4'}>
-      <div className={'h-48 w-full text-center'}>
+      <div className={'text-center py-12'}>
+        <img
+          src="/not-found.avif"
+          alt="not-found"
+          width={'100%'}
+          height={'100%'}
+          className={'mx-auto max-w-(--breakpoint-sm)'}
+        />
         <h1 className={'text-2xl font-semibold'}>
           Under construction. Please check back later.
         </h1>

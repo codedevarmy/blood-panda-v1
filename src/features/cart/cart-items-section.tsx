@@ -59,12 +59,13 @@ export default function CartItemsSection() {
                   <CardContent className="p-0">
                     <div className="flex h-full flex-col md:flex-row">
                       {/* Product Image */}
-                      <div className="relative h-auto w-full md:w-32">
+                      <div className="relative h-auto w-full md:w-32 bg-destructive/10">
                         <img
-                          src={'https://avatar.vercel.sh/rauchg?size=30'}
+                          // src={'https://avatar.vercel.sh/rauchg?size=30'}
+                          src={'/packages/3.svg'}
                           alt={item.name}
-                          width={500}
-                          height={500}
+                          width={300}
+                          height={300}
                           className="h-full w-full object-cover md:w-32"
                         />
                       </div>
@@ -79,7 +80,7 @@ export default function CartItemsSection() {
                               </p> */}
                           </div>
                           <Button
-                            variant="ghost"
+                            variant="destructive"
                             size="icon"
                             onClick={() => removeItem({ id: item.id })}
                           >

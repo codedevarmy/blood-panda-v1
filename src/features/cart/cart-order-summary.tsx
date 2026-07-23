@@ -135,7 +135,11 @@ export default function CartOrderSummary() {
           </div>
 
           {/* Checkout Button */}
-          <Button className="w-full">
+          <Button
+            className={
+              'w-full bg-destructive hover:bg-accent hover:text-destructive transition-all duration-300 ease-in-out'
+            }
+          >
             <CreditCard className="mr-2 h-4 w-4" />
             Proceed to Checkout
           </Button>
