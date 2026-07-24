@@ -2,7 +2,7 @@ import { createFileRoute, Link, redirect } from '@tanstack/react-router'
 import { allPosts } from 'content-collections'
 
 import { Badge } from '#/components/ui/badge'
-import { buttonVariants } from '#/components/ui/button'
+import { Button, buttonVariants } from '#/components/ui/button'
 import {
   Card,
   CardContent,
@@ -11,6 +11,7 @@ import {
   CardTitle,
 } from '#/components/ui/card'
 import { MDXContent } from '@content-collections/mdx/react'
+import { Image } from '@unpic/react'
 import { format } from 'date-fns'
 import { ChevronLeftCircle, ChevronRightCircle } from 'lucide-react'
 
@@ -42,19 +43,19 @@ export const Route = createFileRoute('/blogs/$blogId/')({
 function RouteComponent() {
   const currentPost = Route.useLoaderData()
 
-  const sortedPosts = allPosts.sort((a, b) => {
-    const dateA = new Date(a.createdAt).getTime()
-    const dateB = new Date(b.createdAt).getTime()
-    // const dateA = new Date(a.lastModified).getTime()
-    // const dateB = new Date(b.lastModified).getTime()
-    return dateA - dateB // Sort by last modified date (oldest to newest)
-  })
+  // const sortedPosts = allPosts.sort((a, b) => {
+  //   const dateA = new Date(a.createdAt).getTime()
+  //   const dateB = new Date(b.createdAt).getTime()
+  //   // const dateA = new Date(a.lastModified).getTime()
+  //   // const dateB = new Date(b.lastModified).getTime()
+  //   return dateA - dateB // Sort by last modified date (oldest to newest)
+  // })
 
-  const currentIndex = sortedPosts.findIndex((post) => post.slug === post.slug)
+  const currentIndex = allPosts.findIndex((p) => p.slug === currentPost.slug)
 
-  const previousPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null
+  const previousPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null
   const nextPost =
-    currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null
+    currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null
 
   return (
     <main className={'mx-auto max-w-(--breakpoint-lg) space-y-8 px-4 py-12'}>
@@ -68,11 +69,20 @@ function RouteComponent() {
         </CardHeader>
 
         <CardContent>
-          <img
+          {/* <img
             src={currentPost.image}
             alt={currentPost.title}
             width={'100%'}
             height={'100%'}
+            className={'h-full w-full'}
+          /> */}
+          <Image
+            src={currentPost.image}
+            alt={currentPost.title}
+            layout="fullWidth"
+            // height={500}
+            // width={500}
+            aspectRatio={21 / 9}
             className={'h-full w-full'}
           />
         </CardContent>
@@ -109,23 +119,56 @@ function RouteComponent() {
         </CardContent>
 
         <CardFooter className={'justify-between'}>
-          <Link
+          {previousPost ? (
+            <Link
+              // to={previousPost ? `blogs/${previousPost.slug}` : "#"}
+              to={'/blogs/$blogId'}
+              params={{ blogId: previousPost._meta.path }}
+              className={buttonVariants()}
+              viewTransition
+            >
+              <ChevronLeftCircle className={'size-4'} />
+              Prev
+            </Link>
+          ) : (
+            <Button
+              disabled={true}
+              className={buttonVariants({ variant: 'outline' })}
+            >
+              <ChevronLeftCircle className={'size-4'} />
+              Prev
+            </Button>
+          )}
+          {/* <Link
             // to={previousPost ? `blogs/${previousPost.slug}` : "#"}
-            to={previousPost ? `${previousPost._meta.path}` : '#'}
+            to={previousPost ? '/blogs/$blogId' : '#'}
+            params={{ blogId: previousPost?._meta.path }}
             className={buttonVariants()}
             viewTransition
           >
             <ChevronLeftCircle className={'size-4'} />
             Prev
-          </Link>
-          <Link
-            to={nextPost ? `${nextPost._meta.path}` : '#'}
-            className={buttonVariants()}
-            viewTransition
-          >
-            Next
-            <ChevronRightCircle className={'size-4'} />
-          </Link>
+          </Link> */}
+
+          {nextPost ? (
+            <Link
+              to={'/blogs/$blogId'}
+              params={{ blogId: nextPost._meta.path }}
+              className={buttonVariants()}
+              viewTransition
+            >
+              Next
+              <ChevronRightCircle className={'size-4'} />
+            </Link>
+          ) : (
+            <Button
+              disabled={true}
+              className={buttonVariants({ variant: 'outline' })}
+            >
+              Next
+              <ChevronRightCircle className={'size-4'} />
+            </Button>
+          )}
         </CardFooter>
       </Card>
     </main>

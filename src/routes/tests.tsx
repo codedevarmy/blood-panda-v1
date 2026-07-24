@@ -82,7 +82,7 @@ function RouteComponent() {
             width={1282}
             height={488}
             className={'absolute top-0 left-0 -z-10 h-full w-full object-cover'}
-            priority
+            priority={true}
           />
           <div
             className={

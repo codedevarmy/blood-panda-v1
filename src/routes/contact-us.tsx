@@ -1,5 +1,6 @@
 import { Spinner } from '#/components/ui/spinner'
 import { createFileRoute, useRouter } from '@tanstack/react-router'
+import { Image } from '@unpic/react'
 
 export const Route = createFileRoute('/contact-us')({
   component: RouteComponent,
@@ -16,12 +17,21 @@ function RouteComponent() {
   return (
     <main className={'mx-auto max-w-(--breakpoint-xl) space-y-8 px-4'}>
       <div className={'text-center py-12'}>
-        <img
+        {/* <img
           src="/not-found.avif"
           alt="not-found"
           width={'100%'}
           height={'100%'}
           className={'mx-auto max-w-(--breakpoint-sm)'}
+        /> */}
+        <Image
+          src="/not-found.avif"
+          alt="not-found"
+          layout="constrained"
+          width={500}
+          height={500}
+          className={'mx-auto max-w-(--breakpoint-sm)'}
+          priority={true}
         />
         <h1 className={'text-2xl font-semibold'}>
           Under construction. Please check back later.

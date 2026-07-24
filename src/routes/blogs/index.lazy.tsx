@@ -11,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from '#/components/ui/card'
+import { Image } from '@unpic/react'
 import { format } from 'date-fns'
 import { ArrowRightIcon } from 'lucide-react'
 
@@ -39,11 +40,19 @@ function RouteComponent() {
           {allPosts.map((post) => (
             <Card key={post._meta.path} className={'gap-4 pt-0 pb-2'}>
               <CardContent className={'scroll-fade-b px-0'}>
-                <img
+                {/* <img
                   src={post.image}
                   alt={post.title}
                   width={'100%'}
                   height={'100%'}
+                  className={'h-full w-full'}
+                /> */}
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  layout="constrained"
+                  height={500}
+                  width={500}
                   className={'h-full w-full'}
                 />
               </CardContent>

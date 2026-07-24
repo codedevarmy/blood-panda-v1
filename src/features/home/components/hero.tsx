@@ -36,7 +36,7 @@ export default function Hero() {
           width={1469}
           height={691}
           className={'w-full h-full object-cover rounded-3xl'}
-          priority
+          priority={true}
         />
       </div>
       <Card className="z-10 bg-background/10 backdrop-blur-xs border-none ring-0 shadow-none border-0 h-full justify-center scroll-fade-e gap-4">
