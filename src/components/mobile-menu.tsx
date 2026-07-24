@@ -1,4 +1,10 @@
-import { IconLogout, IconMenu4 } from '@tabler/icons-react'
+import {
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconBrandThreads,
+  IconLogout,
+  IconMenu4,
+} from '@tabler/icons-react'
 import { ShoppingBasketIcon } from 'lucide-react'
 import { useState } from 'react'
 
@@ -174,7 +180,7 @@ export default function MobileMenu() {
                   }
 
                   return (
-                    <NavigationMenuItem key={link.id}>
+                    <NavigationMenuItem key={link.id} className={'w-full'}>
                       <NavigationMenuLink
                         active={link.href === pathname}
                         asChild
@@ -213,7 +219,7 @@ export default function MobileMenu() {
                 Cityville, ST 12345
               </p>
               <p>
-                Phone:{' '}
+                <strong>Phone:</strong>{' '}
                 <a
                   href="tel:+918277842200"
                   className={'text-primary'}
@@ -224,7 +230,7 @@ export default function MobileMenu() {
                 </a>
               </p>
               <p>
-                Email:
+                <strong>Email:</strong>{' '}
                 <a
                   href="mailto:support@bloodpanda.com"
                   className={'text-primary'}
@@ -235,7 +241,7 @@ export default function MobileMenu() {
                 </a>
               </p>
               <p>
-                Want to chat?
+                <strong>Want to chat?</strong>{' '}
                 <a
                   href="https://wa.link/fvmq1j"
                   className={'text-primary'}
@@ -274,7 +280,7 @@ export default function MobileMenu() {
                     <ShoppingBasketIcon className={'size-4'} />
                     <Badge
                       variant={'destructive'}
-                      className={'absolute -top-2.5 -right-1.5 px-0.5 text-xs'}
+                      className={'absolute -top-2.5 -right-1.5 px-1.5 text-xs'}
                     >
                       {items.length}
                     </Badge>
@@ -294,7 +300,7 @@ export default function MobileMenu() {
                     <ShoppingBasketIcon className={'size-4'} />
                     <Badge
                       variant={'destructive'}
-                      className={'absolute -top-2.5 -right-1.5 px-0.5 text-xs'}
+                      className={'absolute -top-2.5 -right-1.5 px-1.5 text-xs'}
                     >
                       {items.length}
                     </Badge>
@@ -303,9 +309,36 @@ export default function MobileMenu() {
               </li>
             )}
 
-            {/* <li>
-              <ModeToggle />
-            </li> */}
+            <li className={'flex items-center justify-center gap-2'}>
+              <a
+                href="https://www.facebook.com/share/1D82dU3Uad/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonVariants({ variant: 'link', size: 'icon' })}
+              >
+                <IconBrandFacebook className={'size-5'} />
+              </a>
+              <a
+                href="https://www.threads.com/@bloodpandaofficial?igshid=NTc4MTIwNjQ2YQ=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonVariants({ variant: 'link', size: 'icon' })}
+              >
+                <IconBrandThreads className={'size-5'} />
+              </a>
+
+              <a
+                href="https://www.instagram.com/bloodpandaofficial?utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonVariants({
+                  variant: 'link',
+                  size: 'icon',
+                })}
+              >
+                <IconBrandInstagram className={'size-5'} />
+              </a>
+            </li>
           </ul>
           {isPending || isRefetching ? (
             <Skeleton

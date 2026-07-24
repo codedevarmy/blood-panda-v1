@@ -1,9 +1,8 @@
 import {
   IconBrandFacebook,
   IconBrandInstagram,
-  IconBrandLinkedin,
+  IconBrandThreads,
   IconBrandWhatsapp,
-  IconBrandYoutube,
 } from '@tabler/icons-react'
 import { Link } from '@tanstack/react-router'
 import {
@@ -12,7 +11,7 @@ import {
   MailPlusIcon,
   PhoneCallIcon,
 } from 'lucide-react'
-import { Button } from './ui/button'
+import { Button, buttonVariants } from './ui/button'
 // import { Card, CardAction, CardContent, CardDescription } from './ui/card'
 
 export default function Footer() {
@@ -55,16 +54,29 @@ export default function Footer() {
           </Button>
 
           <div className={'flex items-center justify-center gap-3'}>
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.facebook.com/share/1D82dU3Uad/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonVariants({ variant: 'link', size: 'icon' })}
+            >
               <IconBrandFacebook className={'size-5 stroke-accent'} />
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <IconBrandLinkedin className={'size-5 stroke-accent'} />
+            <a
+              href="https://www.threads.com/@bloodpandaofficial?igshid=NTc4MTIwNjQ2YQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonVariants({ variant: 'link', size: 'icon' })}
+            >
+              <IconBrandThreads className={'size-5 stroke-accent'} />
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <IconBrandYoutube className={'size-5 stroke-accent'} />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
+
+            <a
+              href="https://www.instagram.com/bloodpandaofficial?utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonVariants({ variant: 'link', size: 'icon' })}
+            >
               <IconBrandInstagram className={'size-5 stroke-accent'} />
             </a>
           </div>
