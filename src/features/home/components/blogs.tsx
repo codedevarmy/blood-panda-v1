@@ -48,7 +48,7 @@ export default function Blogs() {
         >
           {blogs.map((blog) => {
             return (
-              <Card key={blog.id} className={'pt-0'}>
+              <Card key={blog.id} className={'pt-0 pb-2 gap-2'}>
                 <CardContent className={'scroll-fade-b px-0'}>
                   <img
                     src={blog.cover}
