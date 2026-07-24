@@ -88,7 +88,7 @@ function RouteComponent() {
             className={
               'absolute top-0 left-0 -z-10 h-full w-full object-cover rounded-3xl'
             }
-            priority={true}
+            // priority={true}
           />
           <div
             className={

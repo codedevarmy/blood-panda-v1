@@ -1,4 +1,4 @@
-import { createLazyFileRoute, Link } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import { allPosts } from 'content-collections'
 
 import { Badge } from '#/components/ui/badge'
@@ -11,15 +11,21 @@ import {
   CardHeader,
   CardTitle,
 } from '#/components/ui/card'
+import { seo } from '#/constants/seo-details'
 import { Image } from '@unpic/react'
 import { format } from 'date-fns'
 import { ArrowRightIcon } from 'lucide-react'
 
-export const Route = createLazyFileRoute('/blogs/')({
+export const Route = createFileRoute('/blogs/')({
+  head: () => seo('/blogs/'),
   component: RouteComponent,
   pendingComponent: PendingComponent,
   errorComponent: ErrorComponent,
   notFoundComponent: NotFoundComponent,
+  wrapInSuspense: true,
+  codeSplitGroupings: [
+    ['component', 'pendingComponent', 'errorComponent', 'notFoundComponent'],
+  ],
 })
 
 function RouteComponent() {
@@ -82,7 +88,8 @@ function RouteComponent() {
               <CardFooter className={'flex justify-end rounded-none'}>
                 <Link
                   // to={`/blogs/${post._meta.path}`}
-                  to={post._meta.path}
+                  to={'/blogs/$blogId'}
+                  params={{ blogId: post._meta.path }}
                   className={buttonVariants({ variant: 'link' })}
                   viewTransition
                 >

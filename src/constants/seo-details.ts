@@ -9,10 +9,29 @@ export function seo(path: Path, slug?: string) {
   const titlePath =
     path === '/' ? 'Home' : `${capitalizeFirstLetter(path.split('/')[1])}`
 
+  // few cases
+  // 1. /blogs/ => need to remove trailing slash and add canonical url as /blogs
+  // 2. /blogs/$blogId/ => need to remove $blogId and add canonical url as /blogs/post-2
+  // 3. /packages/$package => need to remove $package and add canonical url as /packages/package-name
+  // 4. /packages/mini-packages/$miniPackage => need to remove $miniPackage and add canonical url as /packages/mini-packages/mini-package-name
+
+  // extra take care /blogs/$blogId/ extra trailing slash means /blogs/$blogId/ => /blogs/post-2
+
+  // Clean the path by removing any trailing slash first
+  const cleanedPath = path.replace(/\/$/, '')
+
+  // Check if the cleaned path contains a dynamic parameter (starts with $)
+  const canonicalPath = cleanedPath.includes('$')
+    ? cleanedPath.substring(0, cleanedPath.lastIndexOf('/')) +
+      (slug ? `/${slug}` : '')
+    : cleanedPath
+
+  // console.log('canonicalPath', canonicalPath)
+
   return {
     meta: [
       {
-        title: `Blood Tests & Lab Tests in Bengaluru | BloodPanda - ${titlePath} ${slug ? `| ${formatSlug(slug)}` : ''}`,
+        title: `Blood & Lab Tests in Bengaluru | BloodPanda - ${titlePath} ${slug ? `| ${formatSlug(slug)}` : ''}`,
       },
       {
         name: 'description',
@@ -63,9 +82,7 @@ export function seo(path: Path, slug?: string) {
     links: [
       {
         rel: 'canonical',
-        // href: BASE_URL,
-        // heref: `${BASE_URL}${path}`,
-        heref: slug ? `${BASE_URL}${path}/${slug}` : `${BASE_URL}${path}`,
+        href: `${BASE_URL}${canonicalPath}`,
         // href: `https://myapp.com/posts/${params.postId}`,
       },
       {

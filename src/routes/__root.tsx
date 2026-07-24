@@ -43,7 +43,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: 'Blood Tests & Lab Tests in Bengaluru | BloodPanda',
       },
     ],
     links: [
@@ -54,22 +54,9 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
     ],
   }),
   shellComponent: RootDocument,
-  notFoundComponent: () => {
-    return (
-      <main className="mx-auto max-w-(--breakpoint-lg) space-y-8 px-4 py-12">
-        <h1>404 - Not Found</h1>
-        <p>The page you are looking for does not exist.</p>
-      </main>
-    )
-  },
-  errorComponent: ({ error }) => {
-    return (
-      <main className="mx-auto max-w-(--breakpoint-lg) space-y-8 px-4 py-12">
-        <h1>500 - Internal Server Error</h1>
-        <p>{error.message}</p>
-      </main>
-    )
-  },
+  notFoundComponent: RootNotFound,
+  errorComponent: RootError,
+  codeSplitGroupings: [['component', 'notFoundComponent', 'errorComponent']],
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
@@ -110,5 +97,23 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <Scripts />
       </body>
     </html>
+  )
+}
+
+function RootNotFound() {
+  return (
+    <main className="mx-auto max-w-(--breakpoint-lg) space-y-8 px-4 py-12">
+      <h1>404 - Not Found</h1>
+      <p>The page you are looking for does not exist.</p>
+    </main>
+  )
+}
+
+function RootError({ error }: { error: Error }) {
+  return (
+    <main className="mx-auto max-w-(--breakpoint-lg) space-y-8 px-4 py-12">
+      <h1>500 - Internal Server Error</h1>
+      <p>{error.message}</p>
+    </main>
   )
 }
